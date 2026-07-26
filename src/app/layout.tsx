@@ -14,7 +14,11 @@ const sans = IBM_Plex_Sans({
   weight: ["400", "500", "600", "700"],
 });
 
-const siteUrl = "https://no-city-hall-bank.vercel.app";
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : "https://no-city-hall-bank.vercel.app");
 
 const title = "NO CITY HALL BANK — You Pay the Tax";
 const description =
