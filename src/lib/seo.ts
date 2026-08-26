@@ -13,7 +13,7 @@ export const DESCRIPTION =
   "$460,000,000 in taxpayer risk. Politicians picking loans. Zero funding plan. Vote NO on Prop B by Nov 3.";
 
 export const SHARE_IMAGE_ALT =
-  "NO on Prop B — San Francisco public bank campaign graphic";
+  "Golden Gate Bridge and San Francisco Bay";
 
 export const KEYWORDS = [
   "San Francisco Prop B",
