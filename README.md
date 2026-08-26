@@ -4,7 +4,7 @@ Political one-pager opposing San Francisco’s Municipal Finance Corporation / P
 
 ## Spine
 
-**$310 million. No funding plan. Politicians picking loans. Vote No.**
+**$460 million. No funding plan. Politicians picking loans. Vote No.**
 
 ## Stack
 

@@ -7,8 +7,12 @@
   --line: #d6d6d6;
   --paper: #f3f3f1;
   --white: #ffffff;
-  --red: #d6001c;
-  --red-deep: #a80016;
+  --navy: #01284f;
+  --navy-deep: #011a35;
+  --teal: #005c7b;
+  --teal-bright: #34a2b1;
+  --orange: #f94b18;
+  --orange-deep: #d63d10;
 }
 
 @theme inline {
@@ -18,8 +22,12 @@
   --color-line: var(--line);
   --color-paper: var(--paper);
   --color-white: var(--white);
-  --color-red: var(--red);
-  --color-red-deep: var(--red-deep);
+  --color-navy: var(--navy);
+  --color-navy-deep: var(--navy-deep);
+  --color-teal: var(--teal);
+  --color-teal-bright: var(--teal-bright);
+  --color-orange: var(--orange);
+  --color-orange-deep: var(--orange-deep);
   --font-display: var(--font-display);
   --font-sans: var(--font-sans);
 }
@@ -30,7 +38,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 4.5rem;
+  scroll-padding-top: 0;
 }
 
 body {
@@ -38,12 +46,14 @@ body {
   background: var(--white);
   color: var(--ink);
   font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.55;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
 ::selection {
-  background: var(--red);
+  background: var(--orange);
   color: var(--white);
 }
 
@@ -54,12 +64,18 @@ body {
   text-transform: uppercase;
 }
 
+.photo-overlay {
+  background:
+    linear-gradient(105deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.78) 42%, rgba(0,0,0,0.45) 68%, rgba(0,0,0,0.35) 100%),
+    linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 45%);
+}
+
 .mesh {
-  background-color: #0a0a0a;
+  background-color: var(--navy-deep);
   background-image:
-    radial-gradient(ellipse 100% 70% at 0% 30%, rgba(214, 0, 28, 0.32), transparent 58%),
-    radial-gradient(ellipse 60% 45% at 100% 0%, rgba(255, 255, 255, 0.06), transparent 50%),
-    linear-gradient(165deg, #050505 0%, #121212 48%, #0a0a0a 100%);
+    radial-gradient(ellipse 100% 70% at 0% 30%, rgba(249, 75, 24, 0.28), transparent 58%),
+    radial-gradient(ellipse 60% 45% at 100% 0%, rgba(52, 162, 177, 0.18), transparent 50%),
+    linear-gradient(165deg, #011224 0%, #01284f 48%, #011a35 100%);
 }
 
 .paper-grid {

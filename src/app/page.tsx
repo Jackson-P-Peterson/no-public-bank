@@ -10,7 +10,7 @@ import { Truth } from "@/components/Truth";
 
 export default function Home() {
   return (
-    <>
+    <div className="relative">
       <Nav />
       <main>
         <Hero />
@@ -22,6 +22,6 @@ export default function Home() {
         <Act />
       </main>
       <Footer />
-    </>
+    </div>
   );
 }

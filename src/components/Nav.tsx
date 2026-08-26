@@ -1,51 +1,45 @@
-"use client";
-
-import { useEffect, useState } from "react";
-
 export function Nav() {
-  const [solid, setSolid] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setSolid(window.scrollY > 12);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-200 ${
-        solid ? "bg-black text-white" : "bg-transparent text-white"
-      }`}
-    >
-      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-5 md:px-8">
+    <header className="absolute inset-x-0 top-0 z-50 bg-transparent text-white">
+      <div className="mx-auto flex min-h-[4.5rem] max-w-6xl items-center justify-between gap-3 px-5 py-3 md:h-[4.5rem] md:px-8 md:py-0">
         <a
-          href="#top"
-          className="font-display max-w-[58%] text-[13px] font-extrabold leading-[1.05] tracking-wide sm:max-w-none sm:text-[16px] md:text-[18px]"
+          href="/#top"
+          className="font-display min-w-0 text-[15px] font-extrabold leading-[1.08] tracking-wide sm:text-[20px] md:text-[22px]"
         >
-          NO CITY HALL BANK{" "}
-          <span className="text-red">YOU PAY THE TAX</span>
+          <span className="block md:inline">NO ON PROP B</span>
+          <span className="mt-0.5 block text-orange md:mt-0 md:inline">
+            <span className="hidden md:inline"> </span>
+            YOU’LL PAY THE TAX
+          </span>
         </a>
-        <nav className="hidden items-center gap-6 text-[13px] font-semibold tracking-wide md:flex">
-          <a href="#facts" className="opacity-90 hover:opacity-100">
+        <nav className="hidden items-center gap-7 text-[17px] font-semibold tracking-wide md:flex">
+          <a href="/#facts" className="opacity-90 hover:opacity-100">
             Facts
           </a>
-          <a href="#cost" className="opacity-90 hover:opacity-100">
+          <a href="/#cost" className="opacity-90 hover:opacity-100">
             Cost
           </a>
-          <a href="#truth" className="opacity-90 hover:opacity-100">
+          <a href="/#truth" className="opacity-90 hover:opacity-100">
             Truth
           </a>
-          <a href="#act" className="opacity-90 hover:opacity-100">
+          <a href="/#act" className="opacity-90 hover:opacity-100">
             Act
           </a>
         </nav>
-        <a
-          href="#act"
-          className="bg-red px-3.5 py-2 font-display text-[15px] font-extrabold leading-none tracking-wide text-white transition hover:bg-red-deep"
-        >
-          VOTE NO
-        </a>
+        <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
+          <a
+            href="mailto:campaign@nopropb.com"
+            className="whitespace-nowrap border-2 border-white px-2.5 py-2 font-display text-[13px] font-extrabold leading-none tracking-wide text-white transition hover:bg-white hover:text-navy sm:px-4 sm:text-[18px]"
+          >
+            DONATE
+          </a>
+          <a
+            href="/#act"
+            className="whitespace-nowrap bg-orange px-2.5 py-2 font-display text-[13px] font-extrabold leading-none tracking-wide text-white transition hover:bg-orange-deep sm:px-4 sm:py-2.5 sm:text-[18px]"
+          >
+            GET INVOLVED
+          </a>
+        </div>
       </div>
     </header>
   );
