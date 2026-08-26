@@ -98,7 +98,7 @@ export function Act() {
               </div>
             ) : (
               <form onSubmit={onSubmit} className="space-y-4">
-                <p className="font-display text-[36px] font-black leading-none tracking-tight">
+                <p className="font-display text-[28px] font-black leading-none tracking-tight md:text-[36px]">
                   GET INVOLVED
                 </p>
                 <fieldset>
@@ -203,7 +203,7 @@ export function Act() {
                 <button
                   type="submit"
                   disabled={sending}
-                  className="w-full bg-orange py-5 font-display text-[26px] font-black tracking-wide text-white transition hover:bg-black disabled:opacity-60"
+                  className="w-full bg-orange py-3.5 font-display text-[20px] font-black tracking-wide text-white transition hover:bg-black disabled:opacity-60 md:py-5 md:text-[26px]"
                 >
                   {sending ? "SUBMITTING…" : "SUBMIT"}
                 </button>

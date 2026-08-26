@@ -67,7 +67,7 @@ export function Footer() {
         <p className="mt-8 border-t-2 border-line pt-6 text-[1.25rem] leading-relaxed text-ink">
           Paid for by NO on Proposition B – San Franciscans for Fiscal
           Responsibility, the official opposition committee opposing Proposition
-          B. FPPC # Pending. Financial disclosures are available at{" "}
+          B. FPPC # 1494608. Financial disclosures are available at{" "}
           <a
             href="https://sfethics.org/"
             target="_blank"

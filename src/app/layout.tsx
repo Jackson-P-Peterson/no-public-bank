@@ -69,11 +69,11 @@ export const metadata: Metadata = {
     countryName: "United States",
     images: [
       {
-        url: "/opengraph-image",
+        url: "/opengraph-image.jpg",
         width: 1200,
         height: 630,
         alt: SHARE_IMAGE_ALT,
-        type: "image/png",
+        type: "image/jpeg",
       },
     ],
   },
@@ -83,7 +83,7 @@ export const metadata: Metadata = {
     description: DESCRIPTION,
     images: [
       {
-        url: "/twitter-image",
+        url: "/twitter-image.jpg",
         width: 1200,
         height: 630,
         alt: SHARE_IMAGE_ALT,

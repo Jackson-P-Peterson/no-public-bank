@@ -7,13 +7,13 @@ export const COMMITTEE_NAME =
 
 export const SITE_NAME = "NO ON B";
 
-export const TITLE = "Vote No on San Francisco Prop B | Nov 3, 2026";
+export const TITLE = "NO on Prop B - San Francisco Public Bank";
 
 export const DESCRIPTION =
-  "Official No on Prop B committee. San Francisco’s public bank: $310–$460 million, no funding plan, politicians picking the loans. Vote No November 3, 2026.";
+  "$460,000,000 in taxpayer risk. Politicians picking loans. Zero funding plan. Vote NO on Prop B by Nov 3.";
 
 export const SHARE_IMAGE_ALT =
-  "Vote No on San Francisco Prop B, November 3, 2026. $310–$460 million public bank. You’ll pay the tax.";
+  "NO on Prop B — San Francisco public bank campaign graphic";
 
 export const KEYWORDS = [
   "San Francisco Prop B",
@@ -58,7 +58,7 @@ export function jsonLdGraph() {
           "@type": "ImageObject",
           url: `${SITE_URL}/icon.png`,
         },
-        image: `${SITE_URL}/opengraph-image`,
+        image: `${SITE_URL}/opengraph-image.jpg`,
         address: {
           "@type": "PostalAddress",
           addressLocality: "San Francisco",
@@ -126,13 +126,13 @@ export function jsonLdGraph() {
         ],
         primaryImageOfPage: {
           "@type": "ImageObject",
-          url: `${SITE_URL}/opengraph-image`,
+          url: `${SITE_URL}/opengraph-image.jpg`,
         },
         speakable: {
           "@type": "SpeakableSpecification",
           cssSelector: ["h1", "h2"],
         },
-        dateModified: "2026-08-25",
+        dateModified: "2026-08-26",
       },
       {
         "@type": "Election",

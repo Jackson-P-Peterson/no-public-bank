@@ -46,10 +46,17 @@ body {
   background: var(--white);
   color: var(--ink);
   font-family: var(--font-sans), system-ui, sans-serif;
-  font-size: 1.25rem;
-  line-height: 1.55;
+  font-size: 1.0625rem;
+  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+}
+
+@media (min-width: 768px) {
+  body {
+    font-size: 1.25rem;
+    line-height: 1.55;
+  }
 }
 
 ::selection {
