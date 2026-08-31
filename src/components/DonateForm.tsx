@@ -117,8 +117,9 @@ export function DonateForm() {
       </fieldset>
 
       <p className="text-[16px] font-medium leading-snug text-ink">
-        Stripe will require your street address, occupation, and employer. Those
-        fields are required to accept political contributions in San Francisco.
+        Stripe will require your name, email, phone, street address, occupation,
+        and employer, plus a certification checkbox. Those fields are required
+        to accept political contributions in San Francisco.
       </p>
 
       <label className="flex cursor-pointer gap-3 text-[16px] font-medium leading-snug text-ink">

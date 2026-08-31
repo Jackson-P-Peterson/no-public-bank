@@ -102,7 +102,12 @@ export async function POST(request: Request) {
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
       submit_type: "donate",
+      customer_creation: "always",
       billing_address_collection: "required",
+      phone_number_collection: { enabled: true },
+      name_collection: {
+        individual: { enabled: true, optional: false },
+      },
       consent_collection: {
         terms_of_service: "required",
       },
@@ -111,19 +116,21 @@ export async function POST(request: Request) {
           key: "occupation",
           label: { type: "custom", custom: "Occupation" },
           type: "text",
+          optional: false,
           text: { maximum_length: 255 },
         },
         {
           key: "employer",
           label: { type: "custom", custom: "Employer" },
           type: "text",
+          optional: false,
           text: { maximum_length: 255 },
         },
       ],
       custom_text: {
         submit: {
           message:
-            "Street address, occupation, and employer are required for San Francisco campaign finance reporting. If you are retired, a student, or unemployed, enter that in both Occupation and Employer.",
+            "Name, email, phone, street address, occupation, and employer are required. If you are retired, a student, or unemployed, enter that in both Occupation and Employer.",
         },
         terms_of_service_acceptance: {
           message: `I certify this contribution is from my own funds, I am a U.S. citizen or lawful permanent resident, and I am eligible to make political contributions under federal and San Francisco law. [Contribution rules](${rulesUrl})`,
