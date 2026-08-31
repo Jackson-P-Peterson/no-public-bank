@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const social = [
   {
     name: "Facebook",
@@ -47,21 +49,21 @@ export function Footer() {
             </p>
           </div>
           <div className="flex flex-wrap gap-5 text-[17px] font-bold tracking-wide">
-            <a href="/#facts" className="hover:text-orange">
+            <Link href="/#facts" className="hover:text-orange">
               Facts
-            </a>
-            <a href="/#cost" className="hover:text-orange">
+            </Link>
+            <Link href="/#cost" className="hover:text-orange">
               Cost
-            </a>
-            <a href="/#truth" className="hover:text-orange">
+            </Link>
+            <Link href="/#truth" className="hover:text-orange">
               Truth
-            </a>
-            <a href="/#act" className="hover:text-orange">
+            </Link>
+            <Link href="/#act" className="hover:text-orange">
               Act
-            </a>
-            <a href="mailto:campaign@nopropb.com" className="hover:text-orange">
+            </Link>
+            <Link href="/donate" className="hover:text-orange">
               Donate
-            </a>
+            </Link>
           </div>
         </div>
         <p className="mt-8 border-t-2 border-line pt-6 text-[1.25rem] leading-relaxed text-ink">

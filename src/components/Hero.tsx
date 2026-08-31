@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { CostTicker } from "./CostTicker";
 
 export function Hero() {
@@ -46,12 +47,12 @@ export function Hero() {
           >
             GET INVOLVED
           </a>
-          <a
-            href="mailto:campaign@nopropb.com"
+          <Link
+            href="/donate"
             className="border-2 border-white bg-transparent px-5 py-3 font-display text-[17px] font-extrabold tracking-wide text-white transition hover:bg-white hover:text-navy md:px-9 md:py-5 md:text-[26px]"
           >
             DONATE
-          </a>
+          </Link>
         </div>
 
         <p className="anim-flash mt-5 max-w-2xl text-[18px] font-semibold leading-snug text-white md:mt-6 md:text-[24px]">
