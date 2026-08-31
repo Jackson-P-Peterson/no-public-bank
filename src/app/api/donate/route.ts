@@ -6,8 +6,33 @@ import {
 } from "@/lib/donate";
 import { COMMITTEE_NAME, SITE_URL } from "@/lib/seo";
 
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
+
+function stripeEnvNames() {
+  return Object.keys(process.env)
+    .filter((name) => /stripe/i.test(name))
+    .sort();
+}
+
+function stripeSecretKey() {
+  // Dynamic lookup so the key is read at request time, not inlined empty at build.
+  for (const [name, value] of Object.entries(process.env)) {
+    if (!value?.trim()) continue;
+    const normalized = name.replace(/[^a-z0-9]/gi, "").toLowerCase();
+    if (
+      normalized === "stripesecretkey" ||
+      normalized === "stripesecret" ||
+      normalized === "stripeapikey"
+    ) {
+      return value.trim();
+    }
+  }
+  return "";
+}
+
 function stripeClient() {
-  const key = process.env.STRIPE_SECRET_KEY;
+  const key = stripeSecretKey();
   if (!key) return null;
   return new Stripe(key);
 }
@@ -19,10 +44,31 @@ function originFrom(request: Request) {
 }
 
 export async function POST(request: Request) {
+  const secret = stripeSecretKey();
+  if (secret.startsWith("pk_")) {
+    return NextResponse.json(
+      {
+        ok: false,
+        error:
+          "Vercel has a Stripe publishable key (pk_…). Use the Secret key from Developers → API keys (it starts with sk_).",
+      },
+      { status: 503 },
+    );
+  }
+
   const stripe = stripeClient();
   if (!stripe) {
+    const names = stripeEnvNames();
+    console.error("Donate missing Stripe secret key", {
+      vercelEnv: process.env.VERCEL_ENV,
+      stripeEnvNames: names,
+    });
     return NextResponse.json(
-      { ok: false, error: "Donations are not configured yet." },
+      {
+        ok: false,
+        error: "Donations are not configured yet.",
+        hint: `This ${process.env.VERCEL_ENV || "server"} deploy does not have a Stripe secret key. Stripe variable names present: ${names.join(", ") || "(none)"}. Add STRIPE_SECRET_KEY to Production and Redeploy.`,
+      },
       { status: 503 },
     );
   }

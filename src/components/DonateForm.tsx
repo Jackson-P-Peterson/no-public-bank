@@ -46,9 +46,14 @@ export function DonateForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ amountCents, certified: true }),
       });
-      const json = (await res.json()) as { ok?: boolean; url?: string; error?: string };
+      const json = (await res.json()) as {
+        ok?: boolean;
+        url?: string;
+        error?: string;
+        hint?: string;
+      };
       if (!res.ok || !json.ok || !json.url) {
-        setError(json.error || "Could not start checkout. Try again.");
+        setError(json.hint || json.error || "Could not start checkout. Try again.");
         return;
       }
       window.location.assign(json.url);
