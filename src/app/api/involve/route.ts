@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 
 const INTENTS: Record<string, string> = {
   volunteer: "Volunteer",
+  endorse: "Endorse",
+  canvass: "Help Canvass",
   sign: "Get a Sign",
   updates: "Get Updates",
 };

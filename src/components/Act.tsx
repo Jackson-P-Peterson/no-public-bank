@@ -4,7 +4,16 @@ import { FormEvent, useState } from "react";
 import Image from "next/image";
 import { DonateForm } from "./DonateForm";
 
-type Intent = "volunteer" | "sign" | "updates" | "donate";
+type Intent = "volunteer" | "donate" | "endorse" | "canvass" | "sign" | "updates";
+
+const CHOICES: { id: Intent; label: string }[] = [
+  { id: "volunteer", label: "Volunteer" },
+  { id: "donate", label: "Donate" },
+  { id: "endorse", label: "Endorse" },
+  { id: "canvass", label: "Help Canvass" },
+  { id: "sign", label: "Get a Sign" },
+  { id: "updates", label: "Get Updates" },
+];
 
 export function Act() {
   const [intent, setIntent] = useState<Intent>("volunteer");
@@ -93,8 +102,8 @@ export function Act() {
                   YOU’RE IN.
                 </p>
                 <p className="mt-4 text-[21px] font-medium leading-relaxed text-ink">
-                  We’ll follow up with next steps on volunteering, signs, and
-                  neighborhood outreach.
+                  We’ll follow up with next steps on volunteering, endorsing,
+                  canvassing, signs, and neighborhood outreach.
                 </p>
               </div>
             ) : (
@@ -107,50 +116,20 @@ export function Act() {
                     I want to
                   </legend>
                   <div className="mt-2 grid grid-cols-2 gap-2">
-                    <button
-                      type="button"
-                      onClick={() => setIntent("volunteer")}
-                      className={`border-2 px-3 py-3 text-[17px] font-bold transition ${
-                        intent === "volunteer"
-                          ? "border-orange bg-orange text-white"
-                          : "border-black bg-white text-black hover:bg-paper"
-                      }`}
-                    >
-                      Volunteer
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setIntent("donate")}
-                      className={`border-2 px-3 py-3 text-[17px] font-bold transition ${
-                        intent === "donate"
-                          ? "border-orange bg-orange text-white"
-                          : "border-black bg-white text-black hover:bg-paper"
-                      }`}
-                    >
-                      Donate
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setIntent("sign")}
-                      className={`border-2 px-3 py-3 text-[17px] font-bold transition ${
-                        intent === "sign"
-                          ? "border-orange bg-orange text-white"
-                          : "border-black bg-white text-black hover:bg-paper"
-                      }`}
-                    >
-                      Get a Sign
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setIntent("updates")}
-                      className={`border-2 px-3 py-3 text-[17px] font-bold transition ${
-                        intent === "updates"
-                          ? "border-orange bg-orange text-white"
-                          : "border-black bg-white text-black hover:bg-paper"
-                      }`}
-                    >
-                      Get Updates
-                    </button>
+                    {CHOICES.map((choice) => (
+                      <button
+                        key={choice.id}
+                        type="button"
+                        onClick={() => setIntent(choice.id)}
+                        className={`border-2 px-3 py-3 text-[17px] font-bold transition ${
+                          intent === choice.id
+                            ? "border-orange bg-orange text-white"
+                            : "border-black bg-white text-black hover:bg-paper"
+                        }`}
+                      >
+                        {choice.label}
+                      </button>
+                    ))}
                   </div>
                 </fieldset>
 
