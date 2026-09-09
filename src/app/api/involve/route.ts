@@ -1,13 +1,5 @@
 import { NextResponse } from "next/server";
-
-const INTENTS: Record<string, string> = {
-  volunteer: "Volunteer",
-  endorse: "Endorse",
-  sign: "Get A Sign",
-  updates: "Get Updates",
-};
-
-const INTENT_ORDER = Object.keys(INTENTS);
+import { INVOLVE_CHOICES, INVOLVE_INTENTS } from "@/lib/involve";
 
 function clean(value: unknown, max: number) {
   return String(value ?? "")
@@ -22,9 +14,13 @@ function selectedIntents(body: Record<string, unknown>) {
       ? [body.intent]
       : [];
   const keys = new Set(
-    raw.map((value) => clean(value, 32)).filter((key) => key in INTENTS),
+    raw
+      .map((value) => clean(value, 32))
+      .filter((key): key is keyof typeof INVOLVE_INTENTS => key in INVOLVE_INTENTS),
   );
-  return INTENT_ORDER.filter((key) => keys.has(key)).map((key) => INTENTS[key]);
+  return INVOLVE_CHOICES.filter((choice) => keys.has(choice.id)).map(
+    (choice) => choice.label,
+  );
 }
 
 export async function POST(request: Request) {

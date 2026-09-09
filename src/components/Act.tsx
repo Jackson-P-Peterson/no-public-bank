@@ -2,23 +2,15 @@
 
 import { FormEvent, useState } from "react";
 import Image from "next/image";
+import { INVOLVE_CHOICES, type InvolveIntent } from "@/lib/involve";
 
-type Intent = "volunteer" | "endorse" | "sign" | "updates";
-
-const CHOICES: { id: Intent; label: string }[] = [
-  { id: "volunteer", label: "Volunteer" },
-  { id: "endorse", label: "Endorse" },
-  { id: "sign", label: "Get A Sign" },
-  { id: "updates", label: "Get Updates" },
-];
-
-export function Act() {
-  const [intents, setIntents] = useState<Intent[]>([]);
+export function Act({ initialIntents = [] }: { initialIntents?: InvolveIntent[] }) {
+  const [intents, setIntents] = useState<InvolveIntent[]>(initialIntents);
   const [done, setDone] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState("");
 
-  function toggleIntent(id: Intent) {
+  function toggleIntent(id: InvolveIntent) {
     setIntents((current) =>
       current.includes(id) ? current.filter((item) => item !== id) : [...current, id],
     );
@@ -123,7 +115,7 @@ export function Act() {
                     I want to
                   </legend>
                   <div className="mt-2 grid grid-cols-2 gap-2">
-                    {CHOICES.map((choice) => {
+                    {INVOLVE_CHOICES.map((choice) => {
                       const selected = intents.includes(choice.id);
                       return (
                         <button
