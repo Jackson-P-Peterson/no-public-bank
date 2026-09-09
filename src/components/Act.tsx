@@ -1,19 +1,35 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useState, useSyncExternalStore } from "react";
 import Image from "next/image";
-import { INVOLVE_CHOICES, type InvolveIntent } from "@/lib/involve";
+import {
+  INVOLVE_CHOICES,
+  getClientWantKey,
+  parseWantParam,
+  subscribeInvolveWant,
+  type InvolveIntent,
+} from "@/lib/involve";
 
 export function Act({ initialIntents = [] }: { initialIntents?: InvolveIntent[] }) {
-  const [intents, setIntents] = useState<InvolveIntent[]>(initialIntents);
+  const wantKey = useSyncExternalStore(
+    subscribeInvolveWant,
+    getClientWantKey,
+    () => initialIntents[0] ?? "",
+  );
+  const urlIntents = parseWantParam(wantKey || initialIntents[0]);
+  const [overrides, setOverrides] = useState<InvolveIntent[] | null>(null);
+  const intents = overrides ?? urlIntents;
   const [done, setDone] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState("");
 
   function toggleIntent(id: InvolveIntent) {
-    setIntents((current) =>
-      current.includes(id) ? current.filter((item) => item !== id) : [...current, id],
-    );
+    setOverrides((current) => {
+      const selected = current ?? urlIntents;
+      return selected.includes(id)
+        ? selected.filter((item) => item !== id)
+        : [...selected, id];
+    });
   }
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
@@ -119,6 +135,7 @@ export function Act({ initialIntents = [] }: { initialIntents?: InvolveIntent[] 
                       const selected = intents.includes(choice.id);
                       return (
                         <button
+                          id={choice.id}
                           key={choice.id}
                           type="button"
                           aria-pressed={selected}

@@ -9,6 +9,8 @@ import { Trust } from "@/components/Trust";
 import { Truth } from "@/components/Truth";
 import { parseWantParam } from "@/lib/involve";
 
+export const dynamic = "force-dynamic";
+
 export default async function Home({
   searchParams,
 }: {
