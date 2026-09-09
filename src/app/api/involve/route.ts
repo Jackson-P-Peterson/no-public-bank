@@ -3,15 +3,28 @@ import { NextResponse } from "next/server";
 const INTENTS: Record<string, string> = {
   volunteer: "Volunteer",
   endorse: "Endorse",
-  canvass: "Help Canvass",
-  sign: "Get a Sign",
+  sign: "Get A Sign",
   updates: "Get Updates",
 };
+
+const INTENT_ORDER = Object.keys(INTENTS);
 
 function clean(value: unknown, max: number) {
   return String(value ?? "")
     .trim()
     .slice(0, max);
+}
+
+function selectedIntents(body: Record<string, unknown>) {
+  const raw = Array.isArray(body.intents)
+    ? body.intents
+    : body.intent != null
+      ? [body.intent]
+      : [];
+  const keys = new Set(
+    raw.map((value) => clean(value, 32)).filter((key) => key in INTENTS),
+  );
+  return INTENT_ORDER.filter((key) => keys.has(key)).map((key) => INTENTS[key]);
 }
 
 export async function POST(request: Request) {
@@ -32,8 +45,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, error: "Invalid request." }, { status: 400 });
   }
 
-  const intentKey = clean(body.intent, 32);
-  const intent = INTENTS[intentKey];
+  const intent = selectedIntents(body).join(", ");
   const first = clean(body.first, 80);
   const last = clean(body.last, 80);
   const email = clean(body.email, 120);

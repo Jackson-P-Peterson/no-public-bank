@@ -2,28 +2,35 @@
 
 import { FormEvent, useState } from "react";
 import Image from "next/image";
-import { DonateForm } from "./DonateForm";
 
-type Intent = "volunteer" | "donate" | "endorse" | "canvass" | "sign" | "updates";
+type Intent = "volunteer" | "endorse" | "sign" | "updates";
 
 const CHOICES: { id: Intent; label: string }[] = [
   { id: "volunteer", label: "Volunteer" },
-  { id: "donate", label: "Donate" },
   { id: "endorse", label: "Endorse" },
-  { id: "canvass", label: "Help Canvass" },
-  { id: "sign", label: "Get a Sign" },
+  { id: "sign", label: "Get A Sign" },
   { id: "updates", label: "Get Updates" },
 ];
 
 export function Act() {
-  const [intent, setIntent] = useState<Intent>("volunteer");
+  const [intents, setIntents] = useState<Intent[]>([]);
   const [done, setDone] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState("");
 
+  function toggleIntent(id: Intent) {
+    setIntents((current) =>
+      current.includes(id) ? current.filter((item) => item !== id) : [...current, id],
+    );
+  }
+
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setError("");
+    if (intents.length === 0) {
+      setError("Select at least one option.");
+      return;
+    }
     setSending(true);
     const form = e.currentTarget;
     const data = new FormData(form);
@@ -32,7 +39,7 @@ export function Act() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          intent: data.get("intent"),
+          intents,
           first: data.get("first"),
           last: data.get("last"),
           email: data.get("email"),
@@ -103,105 +110,101 @@ export function Act() {
                 </p>
                 <p className="mt-4 text-[21px] font-medium leading-relaxed text-ink">
                   We’ll follow up with next steps on volunteering, endorsing,
-                  canvassing, signs, and neighborhood outreach.
+                  signs, and neighborhood outreach.
                 </p>
               </div>
             ) : (
-              <div className="space-y-4">
+              <form onSubmit={onSubmit} className="space-y-4">
                 <p className="font-display text-[28px] font-black leading-none tracking-tight md:text-[36px]">
-                  {intent === "donate" ? "DONATE" : "GET INVOLVED"}
+                  GET INVOLVED
                 </p>
                 <fieldset>
                   <legend className="text-[15px] font-bold uppercase tracking-[0.16em] text-muted">
                     I want to
                   </legend>
                   <div className="mt-2 grid grid-cols-2 gap-2">
-                    {CHOICES.map((choice) => (
-                      <button
-                        key={choice.id}
-                        type="button"
-                        onClick={() => setIntent(choice.id)}
-                        className={`border-2 px-3 py-3 text-[17px] font-bold transition ${
-                          intent === choice.id
-                            ? "border-orange bg-orange text-white"
-                            : "border-black bg-white text-black hover:bg-paper"
-                        }`}
-                      >
-                        {choice.label}
-                      </button>
-                    ))}
+                    {CHOICES.map((choice) => {
+                      const selected = intents.includes(choice.id);
+                      return (
+                        <button
+                          key={choice.id}
+                          type="button"
+                          aria-pressed={selected}
+                          onClick={() => toggleIntent(choice.id)}
+                          className={`border-2 px-3 py-3 text-[17px] font-bold transition ${
+                            selected
+                              ? "border-orange bg-orange text-white"
+                              : "border-black bg-white text-black hover:bg-paper"
+                          }`}
+                        >
+                          {choice.label}
+                        </button>
+                      );
+                    })}
                   </div>
                 </fieldset>
 
-                {intent === "donate" ? (
-                  <DonateForm />
-                ) : (
-                  <form onSubmit={onSubmit} className="space-y-4">
-                    <div className="grid gap-3 sm:grid-cols-2">
-                      <label className="block text-[15px] font-bold uppercase tracking-wide text-muted">
-                        First name
-                        <input
-                          required
-                          name="first"
-                          className="mt-1 w-full border-2 border-black px-3 py-3 text-[18px] font-medium text-black outline-none focus:border-orange"
-                        />
-                      </label>
-                      <label className="block text-[15px] font-bold uppercase tracking-wide text-muted">
-                        Last name
-                        <input
-                          required
-                          name="last"
-                          className="mt-1 w-full border-2 border-black px-3 py-3 text-[18px] font-medium text-black outline-none focus:border-orange"
-                        />
-                      </label>
-                    </div>
+                <div className="grid gap-3 sm:grid-cols-2">
+                  <label className="block text-[15px] font-bold uppercase tracking-wide text-muted">
+                    First name
+                    <input
+                      required
+                      name="first"
+                      className="mt-1 w-full border-2 border-black px-3 py-3 text-[18px] font-medium text-black outline-none focus:border-orange"
+                    />
+                  </label>
+                  <label className="block text-[15px] font-bold uppercase tracking-wide text-muted">
+                    Last name
+                    <input
+                      required
+                      name="last"
+                      className="mt-1 w-full border-2 border-black px-3 py-3 text-[18px] font-medium text-black outline-none focus:border-orange"
+                    />
+                  </label>
+                </div>
 
-                    <label className="block text-[15px] font-bold uppercase tracking-wide text-muted">
-                      Email
-                      <input
-                        required
-                        type="email"
-                        name="email"
-                        className="mt-1 w-full border-2 border-black px-3 py-3 text-[18px] font-medium text-black outline-none focus:border-orange"
-                      />
-                    </label>
+                <label className="block text-[15px] font-bold uppercase tracking-wide text-muted">
+                  Email
+                  <input
+                    required
+                    type="email"
+                    name="email"
+                    className="mt-1 w-full border-2 border-black px-3 py-3 text-[18px] font-medium text-black outline-none focus:border-orange"
+                  />
+                </label>
 
-                    <label className="block text-[15px] font-bold uppercase tracking-wide text-muted">
-                      Phone number
-                      <input
-                        type="tel"
-                        name="phone"
-                        autoComplete="tel"
-                        className="mt-1 w-full border-2 border-black px-3 py-3 text-[18px] font-medium text-black outline-none focus:border-orange"
-                      />
-                    </label>
+                <label className="block text-[15px] font-bold uppercase tracking-wide text-muted">
+                  Phone number
+                  <input
+                    type="tel"
+                    name="phone"
+                    autoComplete="tel"
+                    className="mt-1 w-full border-2 border-black px-3 py-3 text-[18px] font-medium text-black outline-none focus:border-orange"
+                  />
+                </label>
 
-                    <label className="block text-[15px] font-bold uppercase tracking-wide text-muted">
-                      ZIP code
-                      <input
-                        name="zip"
-                        inputMode="numeric"
-                        autoComplete="postal-code"
-                        placeholder="94118"
-                        className="mt-1 w-full border-2 border-black px-3 py-3 text-[18px] font-medium text-black outline-none focus:border-orange"
-                      />
-                    </label>
+                <label className="block text-[15px] font-bold uppercase tracking-wide text-muted">
+                  ZIP code
+                  <input
+                    name="zip"
+                    inputMode="numeric"
+                    autoComplete="postal-code"
+                    placeholder="94118"
+                    className="mt-1 w-full border-2 border-black px-3 py-3 text-[18px] font-medium text-black outline-none focus:border-orange"
+                  />
+                </label>
 
-                    <input type="hidden" name="intent" value={intent} />
-
-                    <button
-                      type="submit"
-                      disabled={sending}
-                      className="w-full bg-orange py-3.5 font-display text-[20px] font-black tracking-wide text-white transition hover:bg-black disabled:opacity-60 md:py-5 md:text-[26px]"
-                    >
-                      {sending ? "SUBMITTING…" : "SUBMIT"}
-                    </button>
-                    {error ? (
-                      <p className="text-[16px] font-medium text-orange">{error}</p>
-                    ) : null}
-                  </form>
-                )}
-              </div>
+                <button
+                  type="submit"
+                  disabled={sending}
+                  className="w-full bg-orange py-3.5 font-display text-[20px] font-black tracking-wide text-white transition hover:bg-black disabled:opacity-60 md:py-5 md:text-[26px]"
+                >
+                  {sending ? "SUBMITTING…" : "SUBMIT"}
+                </button>
+                {error ? (
+                  <p className="text-[16px] font-medium text-orange">{error}</p>
+                ) : null}
+              </form>
             )}
           </div>
         </div>
