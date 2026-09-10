@@ -1,3 +1,7 @@
+import type { Metadata } from "next";
+import { FAQS } from "@/lib/faq";
+import { NEWS } from "@/lib/news";
+
 export const SITE_URL = (
   process.env.NEXT_PUBLIC_SITE_URL || "https://nopropb.com"
 ).replace(/\/$/, "");
@@ -7,10 +11,11 @@ export const COMMITTEE_NAME =
 
 export const SITE_NAME = "NO ON B";
 
-export const TITLE = "NO on Prop B - San Francisco Public Bank";
+export const TITLE =
+  "Vote No on San Francisco Prop B (Public Bank) | November 3, 2026";
 
 export const DESCRIPTION =
-  "$460,000,000 in taxpayer risk. Politicians picking loans. Zero funding plan. Vote NO on Prop B by Nov 3.";
+  "Official No campaign against San Francisco Proposition B, the November 3, 2026 public bank / Municipal Finance Corporation charter amendment. Controller estimate $310–$460 million. No funding plan. Politicians picking loans. Distinct from June 2026 Prop B on term limits.";
 
 export const SHARE_IMAGE_ALT =
   "Golden Gate Bridge and San Francisco Bay";
@@ -21,6 +26,8 @@ export const KEYWORDS = [
   "Prop B SF",
   "Prop B November 2026",
   "San Francisco public bank",
+  "San Francisco public bank ballot measure",
+  "Municipal Finance Corporation San Francisco",
   "vote no on Prop B",
   "NO on Proposition B",
   "San Franciscans for Fiscal Responsibility",
@@ -28,133 +35,316 @@ export const KEYWORDS = [
   "File 260535",
   "November 3 2026 San Francisco election",
   "City Hall public bank",
+  "AB 857 public bank",
 ];
 
-export function jsonLdGraph() {
-  const committeeId = `${SITE_URL}/#committee`;
-  const websiteId = `${SITE_URL}/#website`;
-  const webpageId = `${SITE_URL}/#webpage`;
-  const electionId = `${SITE_URL}/#election`;
+const committeeId = `${SITE_URL}/#committee`;
+const websiteId = `${SITE_URL}/#website`;
+const electionId = `${SITE_URL}/#election`;
 
+export function pageMeta({
+  title,
+  description,
+  path,
+  type = "website",
+  absoluteTitle,
+}: {
+  title: string;
+  description: string;
+  path: string;
+  type?: "website" | "article";
+  absoluteTitle?: boolean;
+}): Metadata {
+  const url = path ? `${SITE_URL}${path}` : SITE_URL;
+  const ogTitle = title;
   return {
-    "@context": "https://schema.org",
-    "@graph": [
+    title: absoluteTitle ? { absolute: title } : title,
+    description,
+    alternates: { canonical: url },
+    openGraph: {
+      title: ogTitle,
+      description,
+      url,
+      siteName: SITE_NAME,
+      locale: "en_US",
+      type,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: ogTitle,
+      description,
+    },
+  };
+}
+
+function organizationNode() {
+  return {
+    "@type": "Organization",
+    "@id": committeeId,
+    name: COMMITTEE_NAME,
+    legalName: COMMITTEE_NAME,
+    alternateName: [
+      "NO ON B",
+      "No on Prop B",
+      "No on Proposition B",
+      "San Franciscans for Fiscal Responsibility",
+      "Official opposition committee opposing San Francisco Proposition B",
+    ],
+    url: SITE_URL,
+    email: "campaign@nopropb.com",
+    slogan: "VOTE NO ON PROP B. YOU’LL PAY THE BILL.",
+    description: DESCRIPTION,
+    foundingLocation: {
+      "@type": "City",
+      name: "San Francisco",
+    },
+    employee: {
+      "@type": "Person",
+      name: "Jackson Peterson",
+      jobTitle: "Campaign Manager",
+    },
+    logo: {
+      "@type": "ImageObject",
+      url: `${SITE_URL}/icon.png`,
+    },
+    image: `${SITE_URL}/opengraph-image.jpg`,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "San Francisco",
+      addressRegion: "CA",
+      addressCountry: "US",
+    },
+    areaServed: {
+      "@type": "City",
+      name: "San Francisco",
+      containedInPlace: {
+        "@type": "State",
+        name: "California",
+      },
+    },
+    sameAs: [
+      "https://www.facebook.com/nopropbsf",
+      "https://www.instagram.com/nopropb",
+      "https://x.com/nopublicbank",
+    ],
+    identifier: [
       {
-        "@type": "Organization",
-        "@id": committeeId,
-        name: COMMITTEE_NAME,
-        legalName: COMMITTEE_NAME,
-        alternateName: [
-          "NO ON B",
-          "No on Prop B",
-          "No on Proposition B",
-          "San Franciscans for Fiscal Responsibility",
-        ],
-        url: SITE_URL,
-        email: "campaign@nopropb.com",
-        slogan: "NO ON PROP B. YOU’LL PAY THE TAX.",
-        description: DESCRIPTION,
-        logo: {
-          "@type": "ImageObject",
-          url: `${SITE_URL}/icon.png`,
-        },
-        image: `${SITE_URL}/opengraph-image.jpg`,
-        address: {
-          "@type": "PostalAddress",
-          addressLocality: "San Francisco",
-          addressRegion: "CA",
-          addressCountry: "US",
-        },
-        areaServed: {
-          "@type": "City",
-          name: "San Francisco",
-          containedInPlace: {
-            "@type": "State",
-            name: "California",
-          },
-        },
-        sameAs: [
-          "https://www.facebook.com/nopropbsf",
-          "https://www.instagram.com/nopropb",
-          "https://x.com/nopublicbank",
-        ],
+        "@type": "PropertyValue",
+        name: "FPPC",
+        value: "1494608",
       },
       {
-        "@type": "WebSite",
-        "@id": websiteId,
-        url: SITE_URL,
-        name: SITE_NAME,
-        alternateName: [
-          "No on Prop B San Francisco",
-          "Vote No on San Francisco Proposition B",
-        ],
-        description: DESCRIPTION,
-        inLanguage: "en-US",
-        publisher: { "@id": committeeId },
-      },
-      {
-        "@type": "WebPage",
-        "@id": webpageId,
-        url: SITE_URL,
-        name: TITLE,
-        description: DESCRIPTION,
-        inLanguage: "en-US",
-        isPartOf: { "@id": websiteId },
-        about: [
-          {
-            "@type": "Thing",
-            name: "San Francisco Proposition B",
-            description:
-              "November 3, 2026 San Francisco charter amendment to create a City Hall–controlled public bank. Distinct from the June 2026 Proposition B on term limits.",
-            identifier: "File No. 260535",
-          },
-          {
-            "@type": "Thing",
-            name: "San Francisco public bank",
-            description:
-              "Proposed Municipal Finance Corporation / public bank with an estimated $310–$460 million cost, no funding plan on the ballot, and political control of lending.",
-          },
-        ],
-        mentions: [
-          "Proposition B",
-          "Prop B",
-          "San Francisco",
-          "public bank",
-          "November 3, 2026",
-          "AB 857",
-          "Reinvestment Working Group",
-        ],
-        primaryImageOfPage: {
-          "@type": "ImageObject",
-          url: `${SITE_URL}/opengraph-image.jpg`,
-        },
-        speakable: {
-          "@type": "SpeakableSpecification",
-          cssSelector: ["h1", "h2"],
-        },
-        dateModified: "2026-08-26",
-      },
-      {
-        "@type": "Election",
-        "@id": electionId,
-        name: "San Francisco Municipal Election, November 3, 2026",
-        description:
-          "City and County of San Francisco election that includes Proposition B, the public bank charter amendment.",
-        startDate: "2026-11-03",
-        endDate: "2026-11-03",
-        spatialCoverage: {
-          "@type": "City",
-          name: "San Francisco",
-          containedInPlace: {
-            "@type": "State",
-            name: "California",
-            containedInPlace: {
-              "@type": "Country",
-              name: "United States",
-            },
-          },
-        },
+        "@type": "PropertyValue",
+        name: "Board of Supervisors File",
+        value: "260535",
       },
     ],
   };
+}
+
+function websiteNode() {
+  return {
+    "@type": "WebSite",
+    "@id": websiteId,
+    url: SITE_URL,
+    name: SITE_NAME,
+    alternateName: [
+      "No on Prop B San Francisco",
+      "Vote No on San Francisco Proposition B",
+      "nopropb.com",
+    ],
+    description: DESCRIPTION,
+    inLanguage: "en-US",
+    publisher: { "@id": committeeId },
+    hasPart: [
+      { "@type": "WebPage", "@id": `${SITE_URL}/#webpage`, url: SITE_URL },
+      { "@type": "WebPage", url: `${SITE_URL}/faq`, name: "FAQ" },
+      { "@type": "WebPage", url: `${SITE_URL}/news`, name: "News" },
+      { "@type": "WebPage", url: `${SITE_URL}/about`, name: "About" },
+    ],
+  };
+}
+
+function electionNode() {
+  return {
+    "@type": "Election",
+    "@id": electionId,
+    name: "San Francisco Municipal Election, November 3, 2026",
+    description:
+      "City and County of San Francisco election that includes Proposition B, the public bank charter amendment (File No. 260535). Not the June 2026 San Francisco Proposition B on term limits.",
+    startDate: "2026-11-03",
+    endDate: "2026-11-03",
+    spatialCoverage: {
+      "@type": "City",
+      name: "San Francisco",
+      containedInPlace: {
+        "@type": "State",
+        name: "California",
+        containedInPlace: {
+          "@type": "Country",
+          name: "United States",
+        },
+      },
+    },
+  };
+}
+
+function propBAbout() {
+  return [
+    {
+      "@type": "Thing",
+      name: "San Francisco Proposition B (November 2026)",
+      alternateName: [
+        "Prop B",
+        "Proposition B San Francisco public bank",
+        "Municipal Finance Corporation charter amendment",
+      ],
+      description:
+        "November 3, 2026 San Francisco charter amendment to create a City Hall–controlled public bank and Municipal Finance Corporation. Distinct from the June 2026 Proposition B on term limits.",
+      identifier: "File No. 260535",
+    },
+    {
+      "@type": "Thing",
+      name: "San Francisco public bank",
+      description:
+        "Proposed Municipal Finance Corporation / public bank with an estimated $310–$460 million cost, no funding plan on the ballot, and political control of lending. California AB 857 requires a wholesale model: residents cannot open checking accounts.",
+    },
+  ];
+}
+
+export function siteJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [organizationNode(), websiteNode(), electionNode()],
+  };
+}
+
+export function homeJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${SITE_URL}/#webpage`,
+    url: SITE_URL,
+    name: TITLE,
+    description: DESCRIPTION,
+    inLanguage: "en-US",
+    isPartOf: { "@id": websiteId },
+    about: propBAbout(),
+    mentions: [
+      "Proposition B",
+      "Prop B",
+      "San Francisco",
+      "public bank",
+      "Municipal Finance Corporation",
+      "November 3, 2026",
+      "AB 857",
+      "Reinvestment Working Group",
+      "Daniel Lurie",
+      "Alan Wong",
+      "Stephen Sherrill",
+    ],
+    primaryImageOfPage: {
+      "@type": "ImageObject",
+      url: `${SITE_URL}/opengraph-image.jpg`,
+    },
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: ["h1", "h2"],
+    },
+    dateModified: "2026-09-10",
+    publisher: { "@id": committeeId },
+  };
+}
+
+export function faqJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${SITE_URL}/faq#page`,
+    url: `${SITE_URL}/faq`,
+    name: "FAQ: San Francisco Proposition B public bank",
+    description:
+      "Frequently asked questions about San Francisco Proposition B, the November 2026 unfunded public bank charter amendment.",
+    isPartOf: { "@id": websiteId },
+    about: propBAbout(),
+    mainEntity: FAQS.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.a.join(" "),
+      },
+    })),
+    publisher: { "@id": committeeId },
+  };
+}
+
+export function newsJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": `${SITE_URL}/news#page`,
+    url: `${SITE_URL}/news`,
+    name: "News on San Francisco Proposition B public bank",
+    description:
+      "Coverage of San Francisco Proposition B, the November 3, 2026 public bank ballot measure.",
+    isPartOf: { "@id": websiteId },
+    about: propBAbout(),
+    mainEntity: {
+      "@type": "ItemList",
+      itemListOrder: "https://schema.org/ItemListOrderDescending",
+      numberOfItems: NEWS.length,
+      itemListElement: NEWS.map((item, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        url: item.href,
+        name: item.title,
+        item: {
+          "@type": "NewsArticle",
+          headline: item.title,
+          datePublished: item.date,
+          url: item.href,
+          description: item.dek,
+          publisher: {
+            "@type": "Organization",
+            name: item.outlet,
+          },
+        },
+      })),
+    },
+    publisher: { "@id": committeeId },
+  };
+}
+
+export function aboutJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "@id": `${SITE_URL}/about#page`,
+    url: `${SITE_URL}/about`,
+    name: "About the official No on Prop B committee",
+    description:
+      "San Franciscans for Fiscal Responsibility is the official opposition committee against San Francisco Proposition B.",
+    isPartOf: { "@id": websiteId },
+    about: { "@id": committeeId },
+    mainEntity: { "@id": committeeId },
+  };
+}
+
+export function contactJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "@id": `${SITE_URL}/contact#page`,
+    url: `${SITE_URL}/contact`,
+    name: "Contact No on Prop B",
+    isPartOf: { "@id": websiteId },
+    about: { "@id": committeeId },
+    mainEntity: { "@id": committeeId },
+  };
+}
+
+/** @deprecated use siteJsonLd + page graphs */
+export function jsonLdGraph() {
+  return siteJsonLd();
 }

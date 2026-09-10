@@ -2,17 +2,17 @@ const facts = [
   {
     n: "01",
     title: "$460 MILLION",
-    body: "That’s what the City’s own plan says this bank costs over eight years — $90 million just to open the door.",
+    body: "That’s the Controller’s estimate of what this experiment costs — the City’s own fiscal number, not a campaign talking point.",
   },
   {
     n: "02",
     title: "NO FUNDING PLAN",
-    body: "The measure appropriates nothing. The only tax proposed to pay for it was withdrawn in March 2026.",
+    body: "The measure appropriates nothing. The only tax proposed to pay for it was withdrawn in March 2026. The likely next step is a parcel tax — the same model Berkeley is putting on the ballot to capitalize its public bank.",
   },
   {
     n: "03",
     title: "POLITICIANS PICKING LOANS",
-    body: "Their own consultants warned against binding political control. City Hall did it anyway.",
+    body: "Mayor- and Board-appointed commissioners would decide who gets the money — handing loans to NGOs and political favorites. When those loans go bad, you pay.",
   },
 ];
 
@@ -25,7 +25,7 @@ export function Facts() {
         </p>
         <h2 className="font-display mt-3 max-w-5xl text-[clamp(2.85rem,6.5vw,5.25rem)] font-black leading-[0.92] tracking-[-0.02em] text-black">
           Prop B isn’t a “public bank.”
-          <span className="text-orange"> It’s a blank check to city hall.</span>
+          <span className="text-orange"> It’s a risky political lending vehicle.</span>
         </h2>
 
         <div className="mt-14 grid gap-0 border-t-4 border-black md:grid-cols-3">

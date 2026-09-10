@@ -15,6 +15,24 @@ const nextConfig: NextConfig = {
             key: "Permissions-Policy",
             value: "camera=(), microphone=(), geolocation=()",
           },
+          {
+            key: "Link",
+            value: `<https://nopropb.com/llms.txt>; rel="describedby"; type="text/plain", <https://nopropb.com/llms-full.txt>; rel="alternate"; type="text/plain"`,
+          },
+        ],
+      },
+      {
+        source: "/llms.txt",
+        headers: [
+          { key: "Content-Type", value: "text/plain; charset=utf-8" },
+          { key: "Cache-Control", value: "public, max-age=3600" },
+        ],
+      },
+      {
+        source: "/llms-full.txt",
+        headers: [
+          { key: "Content-Type", value: "text/plain; charset=utf-8" },
+          { key: "Cache-Control", value: "public, max-age=3600" },
         ],
       },
     ];

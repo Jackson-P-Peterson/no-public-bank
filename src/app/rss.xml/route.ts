@@ -1,0 +1,35 @@
+import { NEWS } from "@/lib/news";
+import { SITE_URL } from "@/lib/seo";
+
+export async function GET() {
+  const items = NEWS.map(
+    (item) => `    <item>
+      <title><![CDATA[${item.title}]]></title>
+      <link>${item.href}</link>
+      <guid isPermaLink="true">${item.href}</guid>
+      <pubDate>${new Date(item.date).toUTCString()}</pubDate>
+      <source url="${item.href}">${item.outlet}</source>
+      <description><![CDATA[${item.dek}]]></description>
+    </item>`,
+  ).join("\n");
+
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>No on San Francisco Prop B — public bank news</title>
+    <link>${SITE_URL}/news</link>
+    <description>Coverage of San Francisco Proposition B, the November 3, 2026 public bank charter amendment.</description>
+    <language>en-us</language>
+    <lastBuildDate>${new Date(NEWS[0]?.date ?? Date.now()).toUTCString()}</lastBuildDate>
+${items}
+  </channel>
+</rss>
+`;
+
+  return new Response(xml, {
+    headers: {
+      "Content-Type": "application/rss+xml; charset=utf-8",
+      "Cache-Control": "public, max-age=3600",
+    },
+  });
+}

@@ -9,7 +9,7 @@ import {
   SITE_NAME,
   SITE_URL,
   TITLE,
-  jsonLdGraph,
+  siteJsonLd,
 } from "@/lib/seo";
 
 const display = Barlow_Condensed({
@@ -40,7 +40,9 @@ export const metadata: Metadata = {
   classification: "Political campaign — San Francisco ballot measure opposition",
   referrer: "origin-when-cross-origin",
   alternates: {
-    canonical: SITE_URL,
+    types: {
+      "text/plain": `${SITE_URL}/llms.txt`,
+    },
   },
   formatDetection: {
     email: false,
@@ -104,7 +106,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const jsonLd = JSON.stringify(jsonLdGraph()).replace(/</g, "\\u003c");
+  const jsonLd = JSON.stringify(siteJsonLd()).replace(/</g, "\\u003c");
 
   return (
     <html lang="en-US" className={`${display.variable} ${sans.variable} h-full`}>

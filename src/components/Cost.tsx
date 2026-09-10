@@ -17,10 +17,11 @@ export function Cost() {
             <p className="font-display text-[18px] font-bold tracking-[0.18em] text-orange">
               THE COST
             </p>
-            <h2 className="font-display mt-3 text-[clamp(2.6rem,9vw,6.75rem)] font-black leading-[0.82] tracking-[-0.04em]">
-              $310 - 460
+            <h2 className="font-display mt-3 text-[clamp(2.2rem,7vw,5.25rem)] font-black leading-[0.82] tracking-[-0.04em]">
+              <span className="block">SAN FRANCISCO</span>
+              CITY HALL
               <span className="block text-[clamp(2.1rem,5.5vw,4.25rem)] tracking-[-0.02em]">
-                MILLION DOLLARS
+                PUBLIC BANK
               </span>
             </h2>
             <p className="mt-6 max-w-xl text-[24px] font-medium leading-snug text-white">
@@ -80,7 +81,7 @@ export function Cost() {
         <div className="mt-14 grid gap-4 border-t-2 border-white/25 pt-10 sm:grid-cols-3">
           {[
             ["$1,000,000,000+", "Structural deficit already on the books"],
-            ["WITHDRAWN", "The tax meant to fund the bank — gone March 2026"],
+            ["JOBS CUT", "City Hall is already cutting jobs"],
             ["$0", "Appropriated by this charter amendment"],
           ].map(([k, v]) => (
             <div key={k} className="border-l-4 border-orange pl-4">

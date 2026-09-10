@@ -4,16 +4,27 @@ import { SITE_URL } from "@/lib/seo";
 const aiCrawlers = [
   "GPTBot",
   "ChatGPT-User",
+  "OAI-SearchBot",
   "Google-Extended",
+  "Google-CloudVertexBot",
   "Googlebot",
   "Bingbot",
   "PerplexityBot",
   "ClaudeBot",
+  "Claude-SearchBot",
+  "Claude-User",
   "Anthropic-Ai",
   "Applebot",
   "Applebot-Extended",
   "CCBot",
   "meta-externalagent",
+  "FacebookBot",
+  "Amazonbot",
+  "DuckAssistBot",
+  "Bytespider",
+  "YouBot",
+  "Cohere-AI",
+  "MistralAI-User",
 ];
 
 export default function robots(): MetadataRoute.Robots {

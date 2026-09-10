@@ -69,7 +69,7 @@ export function Act({ initialIntents = [] }: { initialIntents?: InvolveIntent[] 
   }
 
   return (
-    <section id="act" className="relative overflow-hidden text-white">
+    <section id="act" className="relative scroll-mt-[4.5rem] overflow-hidden text-white">
       <Image
         src="/sf-cable-car.jpg"
         alt="San Francisco cable car on a steep residential hill"

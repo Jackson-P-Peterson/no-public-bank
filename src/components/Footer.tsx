@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SITE_LINKS } from "@/lib/nav";
 
 const social = [
   {
@@ -37,39 +38,30 @@ export function Footer() {
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="font-display text-[32px] font-black leading-[0.95] tracking-tight text-black sm:text-[44px] md:text-[56px] md:leading-none">
-              <span className="block md:inline">NO ON PROP B</span>
+              <span className="block md:inline">VOTE NO ON PROP B</span>
               <span className="mt-1 block text-orange md:mt-0 md:inline">
                 <span className="hidden md:inline"> </span>
-                YOU’LL PAY THE TAX
+                YOU’LL PAY THE BILL
               </span>
             </p>
             <p className="mt-3 max-w-lg text-[20px] font-semibold leading-snug text-ink">
               $460 million. No funding plan. Politicians picking loans. Vote No
-              on Prop B — November 3, 2026.
+              on Prop B by November 3, 2026.
             </p>
           </div>
-          <div className="flex flex-wrap gap-5 text-[17px] font-bold tracking-wide">
-            <Link href="/#facts" className="hover:text-orange">
-              Facts
-            </Link>
-            <Link href="/#cost" className="hover:text-orange">
-              Cost
-            </Link>
-            <Link href="/#truth" className="hover:text-orange">
-              Truth
-            </Link>
-            <Link href="/#act" className="hover:text-orange">
-              Act
-            </Link>
-            <Link href="/donate" className="hover:text-orange">
-              Donate
-            </Link>
+          <div className="flex flex-wrap gap-5 text-[17px] font-bold">
+            {SITE_LINKS.map((item) => (
+              <Link key={item.href} href={item.href} className="hover:text-orange">
+                {item.label}
+              </Link>
+            ))}
           </div>
         </div>
         <p className="mt-8 border-t-2 border-line pt-6 text-[1.25rem] leading-relaxed text-ink">
           Paid for by NO on Proposition B – San Franciscans for Fiscal
           Responsibility, the official opposition committee opposing Proposition
-          B. FPPC # 1494608. Financial disclosures are available at{" "}
+          B. FPPC
+          #1494608. Financial disclosures are available at{" "}
           <a
             href="https://sfethics.org/"
             target="_blank"
@@ -78,8 +70,7 @@ export function Footer() {
           >
             sfethics.org
           </a>
-          . Not authorized by a candidate or a committee controlled by a
-          candidate.
+          .
         </p>
         <div className="mt-8 flex flex-col items-center">
           <nav aria-label="Social media" className="flex items-center gap-6">

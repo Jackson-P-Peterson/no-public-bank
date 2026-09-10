@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer } from "@/components/Footer";
 import { Nav } from "@/components/Nav";
-import { COMMITTEE_NAME } from "@/lib/seo";
+import { COMMITTEE_NAME, pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Contribution rules",
   description:
-    "Eligibility and disclosure rules for political contributions to NO on Proposition B.",
-};
+    "Eligibility and disclosure rules for political contributions to NO on Proposition B, the official opposition committee against San Francisco’s public bank measure.",
+  path: "/contribution-rules",
+});
 
 export default function ContributionRulesPage() {
   return (

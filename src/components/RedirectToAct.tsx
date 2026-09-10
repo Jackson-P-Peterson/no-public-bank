@@ -1,7 +1,7 @@
 import { INVOLVE_WANT_KEY } from "@/lib/involve";
 
 export function RedirectToAct({ want }: { want?: string }) {
-  const href = want ? `/#${want}` : "/#act";
+  const href = want ? `/?want=${encodeURIComponent(want)}#act` : "/#act";
   const script = want
     ? `try{sessionStorage.setItem(${JSON.stringify(INVOLVE_WANT_KEY)},${JSON.stringify(want)})}catch(e){}location.replace(${JSON.stringify(href)});`
     : `try{sessionStorage.removeItem(${JSON.stringify(INVOLVE_WANT_KEY)})}catch(e){}location.replace("/#act");`;

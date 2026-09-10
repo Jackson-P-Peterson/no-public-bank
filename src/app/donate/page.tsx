@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import { DonateForm } from "@/components/DonateForm";
 import { Footer } from "@/components/Footer";
 import { Nav } from "@/components/Nav";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Donate",
+export const metadata: Metadata = pageMeta({
+  title: "Donate to No on San Francisco Prop B",
   description:
-    "Contribute to NO on Proposition B. Political contribution. Not tax deductible.",
-};
+    "Contribute to the official No campaign against San Francisco Proposition B, the November 2026 public bank charter amendment. Political contribution. Not tax deductible.",
+  path: "/donate",
+});
 
 export default function DonatePage() {
   return (
