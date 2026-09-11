@@ -36,10 +36,10 @@ export default async function Home({
         <Hero />
         <Facts />
         <Cost />
+        <Endorsements />
         <Reality />
         <Trust />
         <Truth />
-        <Endorsements />
         <Act initialIntents={parseWantParam(params.want)} />
       </main>
       <Footer />

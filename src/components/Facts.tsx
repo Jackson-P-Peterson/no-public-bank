@@ -12,7 +12,7 @@ const facts = [
   {
     n: "03",
     title: "POLITICIANS PICKING LOANS",
-    body: "Mayor- and Board-appointed commissioners would decide who gets the money — handing loans to NGOs and political favorites. When those loans go bad, you pay.",
+    body: "Appointed commissioners would decide who gets the money — handing loans to NGOs and political favorites. When those loans go bad, you pay.",
   },
 ];
 
@@ -20,12 +20,12 @@ export function Facts() {
   return (
     <section id="facts" className="bg-white">
       <div className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
-        <p className="font-display text-[18px] font-bold tracking-[0.18em] text-orange">
+        <p className="font-display text-[22px] font-bold tracking-[0.12em] text-orange md:text-[20px] md:tracking-[0.18em]">
           THREE FACTS. MEMORIZE THEM.
         </p>
-        <h2 className="font-display mt-3 max-w-5xl text-[clamp(2.85rem,6.5vw,5.25rem)] font-black leading-[0.92] tracking-[-0.02em] text-black">
+        <h2 className="font-display mt-3 max-w-5xl text-[clamp(3.15rem,10vw,5.5rem)] font-black leading-[0.88] tracking-[-0.03em] text-black">
           Prop B isn’t a “public bank.”
-          <span className="text-orange"> It’s a risky political lending vehicle.</span>
+          <span className="mt-1 block text-orange">Politicians don’t.</span>
         </h2>
 
         <div className="mt-14 grid gap-0 border-t-4 border-black md:grid-cols-3">
@@ -37,7 +37,7 @@ export function Facts() {
               <p className="font-display text-[18px] font-bold tracking-[0.16em] text-orange">
                 {fact.n}
               </p>
-              <h3 className="font-display mt-3 text-[clamp(2rem,3.4vw,2.85rem)] font-black leading-[0.95] text-black">
+              <h3 className="font-display mt-3 text-[clamp(2.35rem,6vw,2.85rem)] font-black leading-[0.95] text-black">
                 {fact.title}
               </h3>
               <p className="mt-4 text-[21px] font-medium leading-relaxed text-muted">

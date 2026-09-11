@@ -14,15 +14,13 @@ export function Cost() {
       <div className="relative z-10 mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
         <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end lg:gap-16">
           <div>
-            <p className="font-display text-[18px] font-bold tracking-[0.18em] text-orange">
+            <p className="font-display text-[22px] font-bold tracking-[0.12em] text-orange md:text-[20px] md:tracking-[0.18em]">
               THE COST
             </p>
-            <h2 className="font-display mt-3 text-[clamp(2.2rem,7vw,5.25rem)] font-black leading-[0.82] tracking-[-0.04em]">
+            <h2 className="font-display mt-3 text-[clamp(3.25rem,11vw,5.5rem)] font-black leading-[0.82] tracking-[-0.04em]">
               <span className="block">SAN FRANCISCO</span>
-              CITY HALL
-              <span className="block text-[clamp(2.1rem,5.5vw,4.25rem)] tracking-[-0.02em]">
-                PUBLIC BANK
-              </span>
+              <span className="block">CITY HALL</span>
+              <span className="block">PUBLIC BANK</span>
             </h2>
             <p className="mt-6 max-w-xl text-[24px] font-medium leading-snug text-white">
               San Francisco is staring down a{" "}
@@ -81,11 +79,11 @@ export function Cost() {
         <div className="mt-14 grid gap-4 border-t-2 border-white/25 pt-10 sm:grid-cols-3">
           {[
             ["$1,000,000,000+", "Structural deficit already on the books"],
-            ["JOBS CUT", "City Hall is already cutting jobs"],
+            ["550 JOBS CUT", "City Hall is already cutting jobs"],
             ["$0", "Appropriated by this charter amendment"],
           ].map(([k, v]) => (
             <div key={k} className="border-l-4 border-orange pl-4">
-              <p className="font-display text-[clamp(1.65rem,4.2vw,2.85rem)] font-black leading-none tracking-tight">
+              <p className="font-display text-[clamp(2rem,7vw,2.85rem)] font-black leading-none tracking-tight">
                 {k}
               </p>
               <p className="mt-2 text-[18px] font-medium leading-snug text-white/85">

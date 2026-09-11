@@ -19,15 +19,15 @@ export function Hero() {
       <div className="photo-overlay absolute inset-0" />
 
       <div className="relative z-10 mx-auto w-full max-w-6xl px-5 pb-16 pt-28 md:px-8 md:py-36">
-        <p className="anim-rise font-display text-[13px] font-bold tracking-[0.1em] text-orange sm:text-[16px] sm:tracking-[0.16em] md:text-[20px] md:tracking-[0.22em]">
+        <p className="anim-rise font-display text-[16px] font-bold tracking-[0.12em] text-orange sm:text-[18px] sm:tracking-[0.16em] md:text-[20px] md:tracking-[0.22em]">
           SAN FRANCISCO · NOVEMBER 3, 2026 · PROPOSITION B
         </p>
 
         <h1 className="anim-rise-2 mt-5 font-display font-black leading-[0.78] tracking-[-0.04em]">
-          <span className="block text-[clamp(2rem,9vw,7.5rem)]">
+          <span className="block text-[clamp(2.75rem,12vw,7.5rem)]">
             <CostTicker />
           </span>
-          <span className="mt-2 block max-w-5xl text-[clamp(1.65rem,6vw,4.75rem)] font-extrabold leading-[0.95] tracking-[-0.02em]">
+          <span className="mt-2 block max-w-5xl text-[clamp(2.15rem,8.5vw,4.75rem)] font-extrabold leading-[0.95] tracking-[-0.02em]">
             MILLION DOLLARS
           </span>
         </h1>

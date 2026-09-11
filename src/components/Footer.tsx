@@ -38,11 +38,8 @@ export function Footer() {
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="font-display text-[32px] font-black leading-[0.95] tracking-tight text-black sm:text-[44px] md:text-[56px] md:leading-none">
-              <span className="block md:inline">VOTE NO ON PROP B</span>
-              <span className="mt-1 block text-orange md:mt-0 md:inline">
-                <span className="hidden md:inline"> </span>
-                YOU’LL PAY THE BILL
-              </span>
+              <span className="block">VOTE NO ON PROP B</span>
+              <span className="mt-1 block text-orange">YOU’LL PAY THE BILL</span>
             </p>
             <p className="mt-3 max-w-lg text-[20px] font-semibold leading-snug text-ink">
               $460 million. No funding plan. Politicians picking loans. Vote No

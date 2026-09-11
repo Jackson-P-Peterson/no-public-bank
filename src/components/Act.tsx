@@ -81,10 +81,10 @@ export function Act({ initialIntents = [] }: { initialIntents?: InvolveIntent[] 
       <div className="relative z-10 mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
         <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:gap-16">
           <div>
-            <p className="font-display text-[18px] font-bold tracking-[0.18em] text-orange">
+            <p className="font-display text-[22px] font-bold tracking-[0.12em] text-orange md:text-[20px] md:tracking-[0.18em]">
               THE ASK
             </p>
-            <h2 className="font-display mt-3 text-[clamp(3.25rem,8.5vw,6rem)] font-black leading-[0.88] tracking-[-0.02em]">
+            <h2 className="font-display mt-3 text-[clamp(3.25rem,10.5vw,6rem)] font-black leading-[0.86] tracking-[-0.03em]">
               FIX THE DEFICIT.
               <br />
               PROTECT SERVICES.
