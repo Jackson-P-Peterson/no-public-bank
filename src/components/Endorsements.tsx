@@ -64,6 +64,11 @@ const organizations = [
     src: "/endorsements/hjta.png",
     alt: "Howard Jarvis Taxpayers Association logo",
   },
+  {
+    name: "United Democratic Club of San Francisco",
+    src: "/endorsements/united-dems.png",
+    alt: "United Democratic Club of San Francisco logo",
+  },
 ];
 
 const people = [
