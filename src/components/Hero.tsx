@@ -56,7 +56,7 @@ export function Hero() {
         </div>
 
         <p className="anim-flash mt-5 max-w-2xl text-[18px] font-semibold leading-snug text-white md:mt-6 md:text-[24px]">
-          You’ll pay the bill when this experiment fails.
+          You’ll pay the bill when this risky experiment fails.
           <br />
           <a
             href="#facts"

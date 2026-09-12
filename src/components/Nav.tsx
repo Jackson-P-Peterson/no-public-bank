@@ -10,10 +10,10 @@ export function Nav({ overlay = true }: { overlay?: boolean }) {
           : "bg-black text-white"
       }
     >
-      <div className="mx-auto flex min-h-[4.5rem] max-w-6xl items-center justify-between gap-3 px-5 py-3 md:h-[4.5rem] md:px-8 md:py-0">
+      <div className="mx-auto flex min-h-[5.25rem] max-w-6xl items-center justify-between gap-3 px-5 py-3 md:h-[5.25rem] md:px-8 md:py-0">
         <Link
           href="/#top"
-          className="font-display min-w-0 text-[15px] font-extrabold leading-[1.05] tracking-wide sm:text-[18px] md:text-[20px]"
+          className="font-display min-w-0 text-[20px] font-extrabold leading-[1.02] tracking-wide sm:text-[22px] md:text-[24px]"
         >
           <span className="block">VOTE NO ON PROP B</span>
           <span className="block text-orange">YOU’LL PAY THE BILL</span>

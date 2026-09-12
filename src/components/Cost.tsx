@@ -14,10 +14,10 @@ export function Cost() {
       <div className="relative z-10 mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
         <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end lg:gap-16">
           <div>
-            <p className="font-display text-[22px] font-bold tracking-[0.12em] text-orange md:text-[20px] md:tracking-[0.18em]">
+            <p className="font-display text-[28px] font-bold tracking-[0.1em] text-orange md:text-[32px] md:tracking-[0.14em]">
               THE COST
             </p>
-            <h2 className="font-display mt-3 text-[clamp(3.25rem,11vw,5.5rem)] font-black leading-[0.82] tracking-[-0.04em]">
+            <h2 className="font-display mt-3 text-[clamp(4.15rem,16vw,7.25rem)] font-black leading-[0.82] tracking-[-0.04em]">
               <span className="block">SAN FRANCISCO</span>
               <span className="block">CITY HALL</span>
               <span className="block">PUBLIC BANK</span>
@@ -49,16 +49,22 @@ export function Cost() {
               </div>
               <div className="flex justify-between gap-4">
                 <dt>To start</dt>
-                <dd>$90M</dd>
+                <dd>$90,000,000</dd>
               </div>
               <div className="flex justify-between gap-4">
                 <dt>To finish</dt>
-                <dd>$220M</dd>
+                <dd>$370,000,000</dd>
               </div>
               <div className="flex justify-between gap-4 border-t-2 border-black pt-3">
                 <dt>Funding on ballot</dt>
                 <dd className="font-display text-[26px] font-black text-orange">
                   NONE
+                </dd>
+              </div>
+              <div className="flex justify-between gap-4 pt-1">
+                <dt>Future funding sources</dt>
+                <dd className="text-right text-[16px] leading-snug">
+                  Parcel tax, gross receipts tax, general fund diversion
                 </dd>
               </div>
             </dl>

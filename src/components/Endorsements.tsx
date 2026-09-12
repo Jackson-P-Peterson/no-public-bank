@@ -88,7 +88,7 @@ const people = [
   "Adam Mesnick",
   "Richie Greenberg",
   "Erica Sandberg",
-  "William Peterson",
+  "Matt Boschetto",
   "Tom Wolf",
   "Ji Winkler",
 ];
@@ -97,17 +97,17 @@ export function Endorsements() {
   return (
     <section id="endorsements" className="bg-white">
       <div className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
-        <p className="font-display text-[22px] font-bold tracking-[0.12em] text-orange md:text-[20px] md:tracking-[0.18em]">
+        <p className="font-display text-[28px] font-bold tracking-[0.1em] text-orange md:text-[32px] md:tracking-[0.14em]">
           ENDORSEMENTS
         </p>
-        <h2 className="font-display mt-3 max-w-5xl text-[clamp(3.15rem,10vw,5.5rem)] font-black leading-[0.88] tracking-[-0.03em] text-black">
+        <h2 className="font-display mt-3 max-w-5xl text-[clamp(4.15rem,16vw,7.25rem)] font-black leading-[0.82] tracking-[-0.04em] text-black">
           LEADERS WHO KNOW THE RISK.
           <br />
           <span className="text-orange">THEY’RE VOTING NO.</span>
         </h2>
 
         <h3 className="font-display mt-14 text-[22px] font-bold tracking-[0.14em] text-orange md:mt-16 md:text-[20px] md:tracking-[0.16em]">
-          ELECTED OFFICIALS
+          ELECTED OFFICIALS VOTING NO ON PROP B
         </h3>
         <ul className="mt-6 grid gap-5 sm:grid-cols-3">
           {officials.map((person) => (
@@ -138,7 +138,7 @@ export function Endorsements() {
         </ul>
 
         <h3 className="font-display mt-14 text-[22px] font-bold tracking-[0.14em] text-orange md:mt-16 md:text-[20px] md:tracking-[0.16em]">
-          ORGANIZATIONS
+          ORGANIZATIONS VOTING NO ON PROP B
         </h3>
         <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {organizations.map((org) => (
@@ -172,7 +172,7 @@ export function Endorsements() {
         </ul>
 
         <h3 className="font-display mt-14 text-[22px] font-bold tracking-[0.14em] text-orange md:mt-16 md:text-[20px] md:tracking-[0.16em]">
-          COMMUNITY MEMBERS
+          COMMUNITY MEMBERS VOTING NO ON PROP B
         </h3>
         <ul className="mt-6 columns-1 sm:columns-2 md:columns-3 md:gap-x-10">
           {people.map((name) => (

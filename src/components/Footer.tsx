@@ -47,7 +47,7 @@ export function Footer() {
             </p>
           </div>
           <div className="flex flex-wrap gap-5 text-[17px] font-bold">
-            {SITE_LINKS.map((item) => (
+            {SITE_LINKS.filter((item) => item.href !== "/about").map((item) => (
               <Link key={item.href} href={item.href} className="hover:text-orange">
                 {item.label}
               </Link>

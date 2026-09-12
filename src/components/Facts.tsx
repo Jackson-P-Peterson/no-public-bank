@@ -1,13 +1,13 @@
 const facts = [
   {
     n: "01",
-    title: "$460 MILLION",
-    body: "That’s the Controller’s estimate of what this experiment costs — the City’s own fiscal number, not a campaign talking point.",
+    title: "NO FUNDING PLAN",
+    body: "The measure appropriates nothing. The only tax proposed to pay for it was withdrawn in March 2026. The likely next step is a parcel tax — the same model Berkeley is putting on the ballot to capitalize its public bank.",
   },
   {
     n: "02",
-    title: "NO FUNDING PLAN",
-    body: "The measure appropriates nothing. The only tax proposed to pay for it was withdrawn in March 2026. The likely next step is a parcel tax — the same model Berkeley is putting on the ballot to capitalize its public bank.",
+    title: "$460 MILLION",
+    body: "That’s the Controller’s estimate of what this experiment costs — the City’s own fiscal number, not a campaign talking point.",
   },
   {
     n: "03",
@@ -20,12 +20,14 @@ export function Facts() {
   return (
     <section id="facts" className="bg-white">
       <div className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
-        <p className="font-display text-[22px] font-bold tracking-[0.12em] text-orange md:text-[20px] md:tracking-[0.18em]">
+        <p className="font-display text-[28px] font-bold tracking-[0.1em] text-orange md:text-[32px] md:tracking-[0.14em]">
           THREE FACTS. MEMORIZE THEM.
         </p>
-        <h2 className="font-display mt-3 max-w-5xl text-[clamp(3.15rem,10vw,5.5rem)] font-black leading-[0.88] tracking-[-0.03em] text-black">
+        <h2 className="font-display mt-3 max-w-5xl text-[clamp(4.15rem,16vw,7.25rem)] font-black leading-[0.82] tracking-[-0.04em] text-black">
           Prop B isn’t a “public bank.”
-          <span className="mt-1 block text-orange">Politicians don’t.</span>
+          <span className="mt-1 block text-orange">
+            It is a political lending vehicle
+          </span>
         </h2>
 
         <div className="mt-14 grid gap-0 border-t-4 border-black md:grid-cols-3">

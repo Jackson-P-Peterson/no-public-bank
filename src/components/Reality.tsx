@@ -25,10 +25,10 @@ export function Reality() {
       <div className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-14">
           <div>
-            <p className="font-display text-[22px] font-bold tracking-[0.12em] text-orange md:text-[20px] md:tracking-[0.18em]">
+            <p className="font-display text-[28px] font-bold tracking-[0.1em] text-orange md:text-[32px] md:tracking-[0.14em]">
               READ THE FINE PRINT
             </p>
-            <h2 className="font-display mt-3 text-[clamp(3.25rem,11vw,5.5rem)] font-black leading-[0.88] tracking-[-0.03em] text-black">
+            <h2 className="font-display mt-3 text-[clamp(4.15rem,16vw,7.25rem)] font-black leading-[0.82] tracking-[-0.04em] text-black">
               THIS ISN’T
               <br />
               A BANK

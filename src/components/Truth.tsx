@@ -25,10 +25,10 @@ export function Truth() {
   return (
     <section id="truth" className="bg-paper">
       <div className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
-        <p className="font-display text-[22px] font-bold tracking-[0.12em] text-orange md:text-[20px] md:tracking-[0.18em]">
+        <p className="font-display text-[28px] font-bold tracking-[0.1em] text-orange md:text-[32px] md:tracking-[0.14em]">
           WHAT THEY’LL SAY
         </p>
-        <h2 className="font-display mt-3 max-w-4xl text-[clamp(3.15rem,10vw,5.5rem)] font-black leading-[0.88] tracking-[-0.03em] text-black">
+        <h2 className="font-display mt-3 max-w-4xl text-[clamp(4.15rem,16vw,7.25rem)] font-black leading-[0.82] tracking-[-0.04em] text-black">
           DON’T VOTE ON THE DREAM.
           <br />
           <span className="text-orange">VOTE ON THE MEASURE.</span>

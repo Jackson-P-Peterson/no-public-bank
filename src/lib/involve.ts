@@ -74,3 +74,11 @@ export function parseWantParam(
     selected.has(id),
   );
 }
+
+export function withDefaultUpdates(intents: InvolveIntent[]): InvolveIntent[] {
+  const selected = new Set<InvolveIntent>(intents);
+  selected.add("updates");
+  return INVOLVE_CHOICES.map((choice) => choice.id).filter((id) =>
+    selected.has(id),
+  );
+}

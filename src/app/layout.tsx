@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Barlow_Condensed, IBM_Plex_Sans } from "next/font/google";
+import { ExitInvolve } from "@/components/ExitInvolve";
 import "./globals.css";
 import {
   COMMITTEE_NAME,
@@ -116,6 +117,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: jsonLd }}
         />
         {children}
+        <ExitInvolve />
       </body>
     </html>
   );
