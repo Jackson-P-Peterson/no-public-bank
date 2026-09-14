@@ -69,6 +69,16 @@ const organizations = [
     src: "/endorsements/united-dems.png",
     alt: "United Democratic Club of San Francisco logo",
   },
+  {
+    name: "Ed Lee Democratic Club",
+    src: "/endorsements/ed-lee-dems.png",
+    alt: "Ed Lee Democratic Club logo",
+  },
+  {
+    name: "Bay Area Council",
+    src: "/endorsements/bay-area-council.png",
+    alt: "Bay Area Council logo",
+  },
 ];
 
 const people = [
