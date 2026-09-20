@@ -43,6 +43,7 @@ export const metadata: Metadata = {
   alternates: {
     types: {
       "text/plain": `${SITE_URL}/llms.txt`,
+      "application/rss+xml": `${SITE_URL}/rss.xml`,
     },
   },
   formatDetection: {

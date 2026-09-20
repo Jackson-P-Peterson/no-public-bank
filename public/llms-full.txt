@@ -6,6 +6,7 @@ Campaign manager: Jackson Peterson
 Email: campaign@nopropb.com
 Full FAQ page: https://nopropb.com/faq
 News index: https://nopropb.com/news
+News JSON: https://nopropb.com/news.json
 
 This is the November 3, 2026 San Francisco ballot measure (File No. 260535) to amend the City Charter to authorize a Municipal Finance Corporation and a public bank. It is not the June 2026 San Francisco Proposition B on term limits.
 
@@ -104,6 +105,9 @@ State authorization for local public banks sunsets in 2028. That is the Yes side
 
 ## News (newest first)
 
+- September 16, 2026 — Mission Local: Saikat Chakrabarti drops $400K for affordable housing, public bank and transit measures
+  https://missionlocal.org/2026/09/saikat-chakrabarti-san-francisco-ballot-measure-funding/
+  Chakrabarti contributed $150,000 to Yes on Proposition B, the San Francisco public bank measure, as part of $400,000 across three November ballot measures.
 - September 10, 2026 — San Francisco Chronicle: Endorsement: Vote no on San Francisco’s Prop B to create a public bank
   https://www.sfchronicle.com/opinion/editorials/article/prop-b-bank-san-francisco-22422523.php
   The Chronicle editorial board recommends No, citing no funding plan, hundreds of millions in cost, and tools the city already has.

@@ -8,7 +8,7 @@ import { aboutJsonLd, pageMeta } from "@/lib/seo";
 export const metadata: Metadata = pageMeta({
   title: "About the official No on Prop B committee",
   description:
-    "San Franciscans for Fiscal Responsibility is the official opposition committee against San Francisco Proposition B, the November 2026 public bank charter amendment.",
+    "San Franciscans for Fiscal Responsibility is the official No committee against Prop B San Francisco, the November 2026 San Francisco public bank charter amendment.",
   path: "/about",
 });
 

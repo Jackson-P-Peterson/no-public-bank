@@ -7,9 +7,9 @@ import { FAQS } from "@/lib/faq";
 import { faqJsonLd, pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
-  title: "San Francisco Prop B public bank FAQ",
+  title: "Prop B San Francisco public bank FAQ",
   description:
-    "Answers about San Francisco Proposition B (November 3, 2026): the public bank charter amendment, Controller cost estimate, no funding plan, wholesale-only lending, and why the official No committee says vote No.",
+    "FAQ on Prop B San Francisco (November 3, 2026): the San Francisco public bank charter amendment, Controller cost estimate, no funding plan, wholesale-only lending, and why the official No committee says vote No.",
   path: "/faq",
 });
 

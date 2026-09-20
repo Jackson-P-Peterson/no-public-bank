@@ -6,7 +6,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: SITE_URL,
-      lastModified: new Date("2026-09-10"),
+      lastModified: new Date("2026-09-20"),
       changeFrequency: "weekly",
       priority: 1,
     },
@@ -48,6 +48,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/rss.xml`,
+      lastModified: new Date(NEWS[0]?.date ?? "2026-09-10"),
+      changeFrequency: "weekly",
+      priority: 0.4,
+    },
+    {
+      url: `${SITE_URL}/news.json`,
       lastModified: new Date(NEWS[0]?.date ?? "2026-09-10"),
       changeFrequency: "weekly",
       priority: 0.4,

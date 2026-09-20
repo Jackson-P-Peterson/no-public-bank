@@ -10,6 +10,8 @@ const aiCrawlers = [
   "Googlebot",
   "Bingbot",
   "PerplexityBot",
+  "Perplexity-User",
+  "GoogleOther",
   "ClaudeBot",
   "Claude-SearchBot",
   "Claude-User",

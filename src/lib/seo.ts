@@ -12,20 +12,26 @@ export const COMMITTEE_NAME =
 export const SITE_NAME = "NO ON B";
 
 export const TITLE =
-  "Vote No on San Francisco Prop B (Public Bank) | November 3, 2026";
+  "Prop B San Francisco: Vote No on the Public Bank | Nov 3, 2026";
 
 export const DESCRIPTION =
-  "Official No campaign against San Francisco Proposition B, the November 3, 2026 public bank / Municipal Finance Corporation charter amendment. Controller estimate $310–$460 million. No funding plan. Politicians picking loans. Distinct from June 2026 Prop B on term limits.";
+  "Official No campaign on Prop B San Francisco (November 3, 2026). The San Francisco public bank / Municipal Finance Corporation charter amendment has no funding plan and a Controller cost of $310–$460 million. Distinct from June 2026 Prop B on term limits.";
 
 export const SHARE_IMAGE_ALT =
   "Golden Gate Bridge and San Francisco Bay";
 
 export const KEYWORDS = [
-  "San Francisco Prop B",
-  "Proposition B San Francisco",
-  "Prop B SF",
-  "Prop B November 2026",
+  "prop b san francisco",
+  "Prop B San Francisco",
+  "san francisco public bank",
   "San Francisco public bank",
+  "proposition b san francisco",
+  "Proposition B San Francisco",
+  "San Francisco Prop B",
+  "Prop B SF",
+  "SF public bank",
+  "public bank San Francisco",
+  "Prop B November 2026",
   "San Francisco public bank ballot measure",
   "Municipal Finance Corporation San Francisco",
   "vote no on Prop B",
@@ -36,6 +42,7 @@ export const KEYWORDS = [
   "November 3 2026 San Francisco election",
   "City Hall public bank",
   "AB 857 public bank",
+  "nopropb",
 ];
 
 const committeeId = `${SITE_URL}/#committee`;
@@ -60,7 +67,14 @@ export function pageMeta({
   return {
     title: absoluteTitle ? { absolute: title } : title,
     description,
-    alternates: { canonical: url },
+    keywords: KEYWORDS,
+    alternates: {
+      canonical: url,
+      types: {
+        "application/rss+xml": `${SITE_URL}/rss.xml`,
+        "text/plain": `${SITE_URL}/llms.txt`,
+      },
+    },
     openGraph: {
       title: ogTitle,
       description,
@@ -86,9 +100,16 @@ function organizationNode() {
     alternateName: [
       "NO ON B",
       "No on Prop B",
+      "No on Prop B San Francisco",
       "No on Proposition B",
       "San Franciscans for Fiscal Responsibility",
       "Official opposition committee opposing San Francisco Proposition B",
+    ],
+    knowsAbout: [
+      "Prop B San Francisco",
+      "San Francisco Proposition B",
+      "San Francisco public bank",
+      "Municipal Finance Corporation",
     ],
     url: SITE_URL,
     email: "campaign@nopropb.com",
@@ -106,6 +127,8 @@ function organizationNode() {
     logo: {
       "@type": "ImageObject",
       url: `${SITE_URL}/icon.png`,
+      width: 512,
+      height: 512,
     },
     image: `${SITE_URL}/opengraph-image.jpg`,
     address: {
@@ -149,13 +172,16 @@ function websiteNode() {
     url: SITE_URL,
     name: SITE_NAME,
     alternateName: [
+      "Prop B San Francisco",
       "No on Prop B San Francisco",
       "Vote No on San Francisco Proposition B",
+      "San Francisco public bank",
       "nopropb.com",
     ],
     description: DESCRIPTION,
     inLanguage: "en-US",
     publisher: { "@id": committeeId },
+    about: propBAbout(),
     hasPart: [
       { "@type": "WebPage", "@id": `${SITE_URL}/#webpage`, url: SITE_URL },
       { "@type": "WebPage", url: `${SITE_URL}/faq`, name: "FAQ" },
@@ -196,6 +222,8 @@ function propBAbout() {
       name: "San Francisco Proposition B (November 2026)",
       alternateName: [
         "Prop B",
+        "Prop B San Francisco",
+        "prop b san francisco",
         "Proposition B San Francisco public bank",
         "Municipal Finance Corporation charter amendment",
       ],
@@ -206,6 +234,11 @@ function propBAbout() {
     {
       "@type": "Thing",
       name: "San Francisco public bank",
+      alternateName: [
+        "SF public bank",
+        "San Francisco city public bank",
+        "public bank San Francisco",
+      ],
       description:
         "Proposed Municipal Finance Corporation / public bank with an estimated $310–$460 million cost, no funding plan on the ballot, and political control of lending. California AB 857 requires a wholesale model: residents cannot open checking accounts.",
     },
@@ -233,8 +266,10 @@ export function homeJsonLd() {
     mentions: [
       "Proposition B",
       "Prop B",
+      "Prop B San Francisco",
       "San Francisco",
       "public bank",
+      "San Francisco public bank",
       "Municipal Finance Corporation",
       "November 3, 2026",
       "AB 857",
@@ -251,7 +286,7 @@ export function homeJsonLd() {
       "@type": "SpeakableSpecification",
       cssSelector: ["h1", "h2"],
     },
-    dateModified: "2026-09-10",
+    dateModified: "2026-09-20",
     publisher: { "@id": committeeId },
   };
 }
@@ -262,9 +297,9 @@ export function faqJsonLd() {
     "@type": "FAQPage",
     "@id": `${SITE_URL}/faq#page`,
     url: `${SITE_URL}/faq`,
-    name: "FAQ: San Francisco Proposition B public bank",
+    name: "FAQ: Prop B San Francisco public bank",
     description:
-      "Frequently asked questions about San Francisco Proposition B, the November 2026 unfunded public bank charter amendment.",
+      "Frequently asked questions about Prop B San Francisco, the November 2026 unfunded public bank charter amendment.",
     isPartOf: { "@id": websiteId },
     about: propBAbout(),
     mainEntity: FAQS.map((item) => ({
@@ -285,9 +320,9 @@ export function newsJsonLd() {
     "@type": "CollectionPage",
     "@id": `${SITE_URL}/news#page`,
     url: `${SITE_URL}/news`,
-    name: "News on San Francisco Proposition B public bank",
+    name: "News on Prop B San Francisco public bank",
     description:
-      "Coverage of San Francisco Proposition B, the November 3, 2026 public bank ballot measure.",
+      "Coverage of Prop B San Francisco, the November 3, 2026 San Francisco public bank ballot measure.",
     isPartOf: { "@id": websiteId },
     about: propBAbout(),
     mainEntity: {
@@ -305,6 +340,8 @@ export function newsJsonLd() {
           datePublished: item.date,
           url: item.href,
           description: item.dek,
+          image: `${SITE_URL}${item.image}`,
+          about: propBAbout(),
           publisher: {
             "@type": "Organization",
             name: item.outlet,

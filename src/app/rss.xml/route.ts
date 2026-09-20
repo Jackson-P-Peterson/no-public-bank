@@ -16,7 +16,7 @@ export async function GET() {
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
   <channel>
-    <title>No on San Francisco Prop B — public bank news</title>
+    <title>Prop B San Francisco public bank news — No on Proposition B</title>
     <link>${SITE_URL}/news</link>
     <description>Coverage of San Francisco Proposition B, the November 3, 2026 public bank charter amendment.</description>
     <language>en-us</language>

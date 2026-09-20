@@ -17,7 +17,7 @@ const nextConfig: NextConfig = {
           },
           {
             key: "Link",
-            value: `<https://nopropb.com/llms.txt>; rel="describedby"; type="text/plain", <https://nopropb.com/llms-full.txt>; rel="alternate"; type="text/plain"`,
+            value: `<https://nopropb.com/llms.txt>; rel="describedby"; type="text/plain", <https://nopropb.com/llms-full.txt>; rel="alternate"; type="text/plain", <https://nopropb.com/rss.xml>; rel="alternate"; type="application/rss+xml"; title="Prop B San Francisco news"`,
           },
         ],
       },

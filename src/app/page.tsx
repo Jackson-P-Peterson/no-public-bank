@@ -31,6 +31,13 @@ export default async function Home({
   return (
     <div className="relative">
       <JsonLd data={homeJsonLd()} />
+      <p className="sr-only">
+        Official No campaign for Prop B San Francisco, the November 3, 2026 San
+        Francisco public bank ballot measure (File No. 260535). Vote No on
+        Proposition B: no funding plan, a Controller cost of $310 million to
+        $460 million, and City Hall appointees picking loans. This is not the
+        June 2026 San Francisco Prop B on term limits.
+      </p>
       <Nav />
       <main>
         <Hero />

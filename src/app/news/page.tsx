@@ -8,9 +8,9 @@ import { NEWS } from "@/lib/news";
 import { newsJsonLd, pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
-  title: "News on San Francisco Prop B public bank",
+  title: "News on Prop B San Francisco public bank",
   description:
-    "News and commentary on San Francisco Proposition B, the November 3, 2026 public bank charter amendment — Chronicle editorial, KQED, Axios, American Banker, and more.",
+    "News on Prop B San Francisco and the San Francisco public bank ballot measure — Mission Local, Chronicle editorial, KQED, Axios, American Banker, and more.",
   path: "/news",
 });
 
@@ -24,7 +24,10 @@ export default function NewsPage() {
           <p className="font-display text-[18px] font-bold tracking-[0.18em] text-orange">
             THE OFFICIAL NO COMMITTEE
           </p>
-          <h1 className="font-display mt-3 text-[clamp(2.5rem,7vw,4.5rem)] font-black leading-[0.9] tracking-[-0.02em]">
+          <h1
+            className="font-display mt-3 text-[clamp(2.5rem,7vw,4.5rem)] font-black leading-[0.9] tracking-[-0.02em]"
+            aria-label="News on Prop B San Francisco public bank"
+          >
             NEWS
           </h1>
           <p className="mt-4 text-[20px] font-medium leading-relaxed text-ink">

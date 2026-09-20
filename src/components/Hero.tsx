@@ -6,6 +6,7 @@ export function Hero() {
   return (
     <section
       id="top"
+      aria-label="Vote No on Prop B San Francisco, the November 3, 2026 public bank ballot measure"
       className="relative flex min-h-[100svh] items-center overflow-hidden text-white"
     >
       <Image

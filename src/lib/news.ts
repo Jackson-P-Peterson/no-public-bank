@@ -12,6 +12,19 @@ export type NewsItem = {
 
 export const NEWS: NewsItem[] = [
   {
+    href: "https://missionlocal.org/2026/09/saikat-chakrabarti-san-francisco-ballot-measure-funding/",
+    outlet: "Mission Local",
+    title:
+      "Saikat Chakrabarti drops $400K for affordable housing, public bank and transit measures",
+    date: "2026-09-16",
+    dateLabel: "September 16, 2026",
+    dek: "Chakrabarti contributed $150,000 to Yes on Proposition B, the San Francisco public bank measure, as part of $400,000 across three November ballot measures.",
+    image: "/news/mission-local.jpg",
+    imageAlt:
+      "Saikat Chakrabarti speaking after June 2026 election results in San Francisco",
+    imageClass: "object-cover object-[center_20%]",
+  },
+  {
     href: "https://www.sfchronicle.com/opinion/editorials/article/prop-b-bank-san-francisco-22422523.php",
     outlet: "San Francisco Chronicle",
     title:
