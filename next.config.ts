@@ -4,6 +4,18 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   compress: true,
   serverExternalPackages: ["stripe"],
+  async redirects() {
+    return [
+      { source: "/prop-b", destination: "/prop-b-san-francisco", permanent: true },
+      { source: "/proposition-b", destination: "/prop-b-san-francisco", permanent: true },
+      { source: "/sf-prop-b", destination: "/prop-b-san-francisco", permanent: true },
+      { source: "/propb", destination: "/prop-b-san-francisco", permanent: true },
+      { source: "/public-bank", destination: "/san-francisco-public-bank", permanent: true },
+      { source: "/sf-public-bank", destination: "/san-francisco-public-bank", permanent: true },
+      { source: "/voters-guide", destination: "/what-is-prop-b", permanent: true },
+      { source: "/voter-guide", destination: "/what-is-prop-b", permanent: true },
+    ];
+  },
   async headers() {
     return [
       {
@@ -17,7 +29,7 @@ const nextConfig: NextConfig = {
           },
           {
             key: "Link",
-            value: `<https://nopropb.com/llms.txt>; rel="describedby"; type="text/plain", <https://nopropb.com/llms-full.txt>; rel="alternate"; type="text/plain", <https://nopropb.com/rss.xml>; rel="alternate"; type="application/rss+xml"; title="Prop B San Francisco news"`,
+            value: `<https://nopropb.com/llms.txt>; rel="describedby"; type="text/plain", <https://nopropb.com/llms-full.txt>; rel="alternate"; type="text/plain", <https://nopropb.com/rss.xml>; rel="alternate"; type="application/rss+xml"; title="Prop B San Francisco news", <https://nopropb.com/sitemap.xml>; rel="sitemap"; type="application/xml"`,
           },
         ],
       },

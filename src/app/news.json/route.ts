@@ -1,4 +1,4 @@
-import { NEWS } from "@/lib/news";
+import { NEWS, newsPath } from "@/lib/news";
 import { DESCRIPTION, SITE_URL } from "@/lib/seo";
 
 export async function GET() {
@@ -13,13 +13,13 @@ export async function GET() {
     itemListElement: NEWS.map((item, index) => ({
       "@type": "ListItem",
       position: index + 1,
-      url: item.href,
+      url: `${SITE_URL}${newsPath(item)}`,
       name: item.title,
       item: {
         "@type": "NewsArticle",
         headline: item.title,
         datePublished: item.date,
-        url: item.href,
+        url: `${SITE_URL}${newsPath(item)}`,
         description: item.dek,
         image: `${SITE_URL}${item.image}`,
         publisher: { "@type": "Organization", name: item.outlet },

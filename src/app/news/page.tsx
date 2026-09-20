@@ -73,14 +73,22 @@ export default function NewsPage() {
                   <p className="mt-3 text-[18px] font-medium leading-relaxed text-ink">
                     {item.dek}
                   </p>
-                  <a
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-3 inline-block text-[16px] font-bold text-orange underline decoration-2 underline-offset-4 hover:text-black"
-                  >
-                    Read the story
-                  </a>
+                  <div className="mt-3 flex flex-wrap gap-x-4 gap-y-2">
+                    <Link
+                      href={`/news/${item.slug}`}
+                      className="text-[16px] font-bold text-orange underline decoration-2 underline-offset-4 hover:text-black"
+                    >
+                      Campaign brief
+                    </Link>
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[16px] font-bold text-orange underline decoration-2 underline-offset-4 hover:text-black"
+                    >
+                      Read the story
+                    </a>
+                  </div>
                 </div>
               </li>
             ))}

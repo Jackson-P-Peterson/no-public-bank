@@ -1,5 +1,27 @@
 export const FAQS: { q: string; a: string[] }[] = [
   {
+    q: "What is Prop B on the San Francisco November 2026 ballot?",
+    a: [
+      "November 3, 2026 Prop B (File No. 260535) is a City Charter amendment to authorize a Municipal Finance Corporation and, later, a San Francisco public bank.",
+      "It is not the June 2026 San Francisco Prop B on term limits. A Yes vote does not fund the bank, open branches, or let residents open checking accounts.",
+      "The official No committee — San Franciscans for Fiscal Responsibility — asks voters to vote No.",
+    ],
+  },
+  {
+    q: "When do San Francisco voters vote on the public bank Prop B?",
+    a: [
+      "Election day is Tuesday, November 3, 2026, in the City and County of San Francisco. A simple majority decides the measure.",
+      "The Board of Supervisors placed it on the ballot on a 9–2 vote in July 2026. Supervisors Alan Wong and Stephen Sherrill voted no.",
+    ],
+  },
+  {
+    q: "Is this the same as June 2026 Prop B?",
+    a: [
+      "No. San Francisco reused the letter B. June 2026 Prop B was about term limits. November 2026 Prop B is the public bank / Municipal Finance Corporation charter amendment.",
+      "If a search result says “Prop B San Francisco” without a month, check which election it means. This site is only about the November public-bank measure.",
+    ],
+  },
+  {
     q: "What does Proposition B actually do?",
     a: [
       "It amends the City Charter to authorize a Municipal Finance Corporation now and a public bank later. That is the entire legal effect.",

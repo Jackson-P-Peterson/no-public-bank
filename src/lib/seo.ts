@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { FAQS } from "@/lib/faq";
-import { NEWS } from "@/lib/news";
+import { NEWS, newsPath } from "@/lib/news";
 
 export const SITE_URL = (
   process.env.NEXT_PUBLIC_SITE_URL || "https://nopropb.com"
@@ -42,7 +42,10 @@ export const KEYWORDS = [
   "November 3 2026 San Francisco election",
   "City Hall public bank",
   "AB 857 public bank",
-  "nopropb",
+  "what is prop b san francisco",
+  "what is Prop B SF",
+  "November 2026 Prop B San Francisco",
+  "San Francisco public bank ballot",
 ];
 
 const committeeId = `${SITE_URL}/#committee`;
@@ -55,12 +58,14 @@ export function pageMeta({
   path,
   type = "website",
   absoluteTitle,
+  publishedTime,
 }: {
   title: string;
   description: string;
   path: string;
   type?: "website" | "article";
   absoluteTitle?: boolean;
+  publishedTime?: string;
 }): Metadata {
   const url = path ? `${SITE_URL}${path}` : SITE_URL;
   const ogTitle = title;
@@ -82,12 +87,64 @@ export function pageMeta({
       siteName: SITE_NAME,
       locale: "en_US",
       type,
+      ...(publishedTime ? { publishedTime, modifiedTime: publishedTime } : {}),
     },
     twitter: {
       card: "summary_large_image",
       title: ogTitle,
       description,
     },
+  };
+}
+
+export function breadcrumbJsonLd(
+  items: { name: string; path: string }[],
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: item.path ? `${SITE_URL}${item.path}` : SITE_URL,
+    })),
+  };
+}
+
+export function articleJsonLd({
+  path,
+  headline,
+  description,
+  datePublished,
+  image,
+}: {
+  path: string;
+  headline: string;
+  description: string;
+  datePublished: string;
+  image?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `${SITE_URL}${path}#article`,
+    url: `${SITE_URL}${path}`,
+    headline,
+    description,
+    datePublished,
+    dateModified: datePublished,
+    inLanguage: "en-US",
+    isPartOf: { "@id": websiteId },
+    about: propBAbout(),
+    author: { "@id": committeeId },
+    publisher: { "@id": committeeId },
+    image: image
+      ? image.startsWith("http")
+        ? image
+        : `${SITE_URL}${image}`
+      : `${SITE_URL}/opengraph-image.jpg`,
+    mainEntityOfPage: `${SITE_URL}${path}`,
   };
 }
 
@@ -184,6 +241,9 @@ function websiteNode() {
     about: propBAbout(),
     hasPart: [
       { "@type": "WebPage", "@id": `${SITE_URL}/#webpage`, url: SITE_URL },
+      { "@type": "WebPage", url: `${SITE_URL}/prop-b-san-francisco`, name: "Prop B San Francisco" },
+      { "@type": "WebPage", url: `${SITE_URL}/what-is-prop-b`, name: "What is Prop B?" },
+      { "@type": "WebPage", url: `${SITE_URL}/san-francisco-public-bank`, name: "San Francisco public bank" },
       { "@type": "WebPage", url: `${SITE_URL}/faq`, name: "FAQ" },
       { "@type": "WebPage", url: `${SITE_URL}/news`, name: "News" },
       { "@type": "WebPage", url: `${SITE_URL}/about`, name: "About" },
@@ -332,13 +392,13 @@ export function newsJsonLd() {
       itemListElement: NEWS.map((item, index) => ({
         "@type": "ListItem",
         position: index + 1,
-        url: item.href,
+        url: `${SITE_URL}${newsPath(item)}`,
         name: item.title,
         item: {
           "@type": "NewsArticle",
           headline: item.title,
           datePublished: item.date,
-          url: item.href,
+          url: `${SITE_URL}${newsPath(item)}`,
           description: item.dek,
           image: `${SITE_URL}${item.image}`,
           about: propBAbout(),

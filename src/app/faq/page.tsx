@@ -63,6 +63,19 @@ export default function FaqPage() {
               DONATE
             </Link>
           </div>
+          <p className="mt-8 text-[18px] font-bold leading-relaxed text-ink">
+            <Link href="/prop-b-san-francisco" className="underline decoration-orange decoration-2 underline-offset-4 hover:text-orange">
+              Prop B San Francisco
+            </Link>
+            {" · "}
+            <Link href="/what-is-prop-b" className="underline decoration-orange decoration-2 underline-offset-4 hover:text-orange">
+              What is Prop B?
+            </Link>
+            {" · "}
+            <Link href="/san-francisco-public-bank" className="underline decoration-orange decoration-2 underline-offset-4 hover:text-orange">
+              San Francisco public bank
+            </Link>
+          </p>
         </article>
       </main>
       <Footer />

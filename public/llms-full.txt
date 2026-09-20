@@ -5,6 +5,9 @@ Site: https://nopropb.com
 Campaign manager: Jackson Peterson
 Email: campaign@nopropb.com
 Full FAQ page: https://nopropb.com/faq
+Prop B San Francisco explainer: https://nopropb.com/prop-b-san-francisco
+What is Prop B?: https://nopropb.com/what-is-prop-b
+San Francisco public bank: https://nopropb.com/san-francisco-public-bank
 News index: https://nopropb.com/news
 News JSON: https://nopropb.com/news.json
 
