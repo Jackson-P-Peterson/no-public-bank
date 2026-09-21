@@ -79,6 +79,16 @@ const organizations = [
     src: "/endorsements/bay-area-council.png",
     alt: "Bay Area Council logo",
   },
+  {
+    name: "San Francisco Apartment Association",
+    src: "/endorsements/sfaa.png",
+    alt: "San Francisco Apartment Association logo",
+  },
+  {
+    name: "Blueprint SF",
+    src: "/endorsements/blueprint-sf.png",
+    alt: "Blueprint SF logo",
+  },
 ];
 
 const people = [
