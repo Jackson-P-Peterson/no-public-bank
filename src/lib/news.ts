@@ -22,6 +22,24 @@ export function getNewsBySlug(slug: string) {
 
 export const NEWS: NewsItem[] = [
   {
+    slug: "sfgate-public-bank-ballot-measure",
+    href: "https://www.sfgate.com/news/bayarea/article/sf-ballot-measure-to-allow-for-creation-of-22442293.php",
+    outlet: "SFGate",
+    title:
+      "SF: Ballot Measure To Allow For Creation Of Public Bank Heads To Voters",
+    date: "2026-09-21",
+    dateLabel: "September 21, 2026",
+    dek: "Bay City News, published in SFGate, walks through Prop B as a charter framework — not a funded bank — and notes the Controller’s warning that costs would be significant.",
+    take: [
+      "SFGate published a Bay City News explainer on November Prop B: it would amend the Charter to authorize a Municipal Finance Corporation and, later, a public bank. It does not create the bank on election night, and residents still could not open checking accounts.",
+      "The piece quotes the Controller: if the City proceeds, “costs would be significant.” It cites the 2023 Reinvestment Working Group plan at $300 million-plus over eight years, and notes that startup money would likely come from grants and forgivable loans “unlikely to be repaid.” That is still a blank check. The Controller’s range this committee uses is $310–$460 million, and Prop B still appropriates $0.",
+      "The article also names the official No side: Mayor Lurie, Supervisors Wong and Sherrill, the Chamber, the Bay Area Council, and SPUR. “First in the nation” is the Yes slogan. The ballot question is whether to lock an unfunded City Hall bank into the Charter.",
+    ],
+    image: "/news/sfgate.jpg",
+    imageAlt:
+      "San Francisco City Hall seen from Civic Center Plaza",
+  },
+  {
     slug: "saikat-chakrabarti-public-bank-donation",
     href: "https://missionlocal.org/2026/09/saikat-chakrabarti-san-francisco-ballot-measure-funding/",
     outlet: "Mission Local",
