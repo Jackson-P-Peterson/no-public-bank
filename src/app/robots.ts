@@ -21,6 +21,8 @@ const aiCrawlers = [
   "CCBot",
   "meta-externalagent",
   "FacebookBot",
+  "facebookexternalhit",
+  "Twitterbot",
   "Amazonbot",
   "DuckAssistBot",
   "Bytespider",

@@ -20,8 +20,19 @@ export const DESCRIPTION =
 export const SHARE_IMAGE_ALT =
   "Golden Gate Bridge and San Francisco Bay";
 
+/** Twitter/X does not reliably follow apex→www 308s on image URLs. */
+function shareImageOrigin() {
+  const origin = new URL(SITE_URL);
+  if (origin.hostname === "nopropb.com") {
+    origin.hostname = "www.nopropb.com";
+  }
+  return origin.origin;
+}
+
+export const SHARE_IMAGE_URL = `${shareImageOrigin()}/share.jpg`;
+
 export const SHARE_IMAGE = {
-  url: "/opengraph-image.jpg",
+  url: SHARE_IMAGE_URL,
   width: 1200,
   height: 630,
   alt: SHARE_IMAGE_ALT,
@@ -102,7 +113,7 @@ export function pageMeta({
       card: "summary_large_image",
       title: ogTitle,
       description,
-      images: [SHARE_IMAGE],
+      images: [SHARE_IMAGE_URL],
     },
   };
 }
@@ -153,7 +164,7 @@ export function articleJsonLd({
       ? image.startsWith("http")
         ? image
         : `${SITE_URL}${image}`
-      : `${SITE_URL}/opengraph-image.jpg`,
+      : SHARE_IMAGE_URL,
     mainEntityOfPage: `${SITE_URL}${path}`,
   };
 }
@@ -197,7 +208,7 @@ function organizationNode() {
       width: 512,
       height: 512,
     },
-    image: `${SITE_URL}/opengraph-image.jpg`,
+    image: SHARE_IMAGE_URL,
     address: {
       "@type": "PostalAddress",
       addressLocality: "San Francisco",
@@ -350,7 +361,7 @@ export function homeJsonLd() {
     ],
     primaryImageOfPage: {
       "@type": "ImageObject",
-      url: `${SITE_URL}/opengraph-image.jpg`,
+      url: SHARE_IMAGE_URL,
     },
     speakable: {
       "@type": "SpeakableSpecification",

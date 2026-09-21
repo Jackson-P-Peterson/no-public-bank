@@ -34,6 +34,13 @@ const nextConfig: NextConfig = {
         ],
       },
       {
+        source: "/share.jpg",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+          { key: "Content-Type", value: "image/jpeg" },
+        ],
+      },
+      {
         source: "/llms.txt",
         headers: [
           { key: "Content-Type", value: "text/plain; charset=utf-8" },

@@ -7,6 +7,7 @@ import {
   DESCRIPTION,
   KEYWORDS,
   SHARE_IMAGE,
+  SHARE_IMAGE_URL,
   SITE_NAME,
   SITE_URL,
   TITLE,
@@ -77,7 +78,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: TITLE,
     description: DESCRIPTION,
-    images: [SHARE_IMAGE],
+    images: [SHARE_IMAGE_URL],
   },
   other: {
     "geo.region": "US-CA",
