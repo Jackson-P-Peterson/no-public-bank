@@ -20,6 +20,14 @@ export const DESCRIPTION =
 export const SHARE_IMAGE_ALT =
   "Golden Gate Bridge and San Francisco Bay";
 
+export const SHARE_IMAGE = {
+  url: "/opengraph-image.jpg",
+  width: 1200,
+  height: 630,
+  alt: SHARE_IMAGE_ALT,
+  type: "image/jpeg" as const,
+};
+
 export const KEYWORDS = [
   "prop b san francisco",
   "Prop B San Francisco",
@@ -87,12 +95,14 @@ export function pageMeta({
       siteName: SITE_NAME,
       locale: "en_US",
       type,
+      images: [SHARE_IMAGE],
       ...(publishedTime ? { publishedTime, modifiedTime: publishedTime } : {}),
     },
     twitter: {
       card: "summary_large_image",
       title: ogTitle,
       description,
+      images: [SHARE_IMAGE],
     },
   };
 }
