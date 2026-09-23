@@ -34,6 +34,11 @@ const organizations = [
     alt: "San Francisco Chronicle logo",
   },
   {
+    name: "Bay Area Reporter",
+    src: "/endorsements/bay-area-reporter.png",
+    alt: "Bay Area Reporter logo",
+  },
+  {
     name: "San Francisco Chamber of Commerce",
     src: "/endorsements/sf-chamber.png",
     alt: "San Francisco Chamber of Commerce logo",
