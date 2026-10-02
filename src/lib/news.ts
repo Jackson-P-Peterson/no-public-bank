@@ -22,6 +22,75 @@ export function getNewsBySlug(slug: string) {
 
 export const NEWS: NewsItem[] = [
   {
+    slug: "spur-recommends-no-on-sf-prop-b",
+    href: "https://www.spur.org/voter-guide/2026-11/sf-prop-b-public-bank",
+    outlet: "SPUR",
+    title: "San Francisco Prop B — Public Bank",
+    date: "2026-09-29",
+    dateLabel: "September 29, 2026",
+    dek: "SPUR’s November voter guide recommends No. The charter amendment locks detailed governance into the Charter and still does not say how the bank would be capitalized.",
+    take: [
+      "SPUR recommended a No vote on San Francisco Proposition B in its November 2026 voter guide. The organization said a well-designed public bank could be useful, and still concluded this charter amendment is the wrong way to get one.",
+      "The guide’s objection is governance and money. Prop B writes boards and commissions into the Charter, which SPUR says the City does not need to do — a public bank could be pursued by ordinance. The measure also does not identify capitalization, a problem in a deficit year. Without capital, the municipal finance corporation would sit inactive.",
+      "That is the official No case in a civic organization’s own words: do not lock an unfunded institution into the Charter.",
+    ],
+    image: "/news/spur.jpg",
+    imageAlt:
+      "SPUR voter guide recommending No on San Francisco Proposition B",
+  },
+  {
+    slug: "politico-campaigns-message-the-bots",
+    href: "https://www.politico.com/newsletters/california-playbook-pm/2026/09/28/campaigns-are-learning-to-message-the-bots-01095564",
+    outlet: "POLITICO",
+    title: "Campaigns are learning to message the bots",
+    date: "2026-09-28",
+    dateLabel: "September 28, 2026",
+    dek: "California Playbook’s ballot roundup lists San Francisco Prop B, a charter amendment for a first-in-the-nation public bank, and notes Mayor Daniel Lurie’s opposition.",
+    take: [
+      "POLITICO’s California Playbook listed San Francisco Proposition B in its weekly ballot roundup: a charter amendment to allow what supporters call the nation’s first public bank, with opposition from Mayor Daniel Lurie.",
+      "The item is short. The rest of the newsletter is about how campaigns write for chatbots. The local facts have not changed. Prop B still creates a framework, not the money, and the mayor has said the City should spend on housing and small businesses instead of a new institution.",
+      "National political coverage is starting to name the measure. The voter question is still whether to write an unfunded bank into the Charter.",
+    ],
+    image: "/news/politico.jpg",
+    imageAlt:
+      "Laptop screen showing the letters AI beside the Google Gemini logo",
+  },
+  {
+    slug: "sf-public-press-prop-b-public-bank-groundwork",
+    href: "https://www.sfpublicpress.org/proposition-b-would-lay-groundwork-for-a-san-francisco-public-bank/",
+    outlet: "San Francisco Public Press",
+    title:
+      "Proposition B Would Lay Groundwork for a San Francisco Public Bank",
+    date: "2026-09-27",
+    dateLabel: "September 27, 2026",
+    dek: "Sylvie Sturm reports that Prop B would not create a bank or raise taxes on election night, and quotes the Controller’s estimate of $310 million to $460 million.",
+    take: [
+      "The San Francisco Public Press walked through what November Prop B actually does: a Charter amendment to authorize a Municipal Finance Corporation, not a bank, a tax, or startup money on election night. Funding would have to be found later.",
+      "The piece quotes Controller Greg Wagner’s analysis: establishing the corporation and moving it toward a public bank could cost about $310 million to $460 million over eight years. Some of that could come from grants and forgivable loans “unlikely to be repaid,” and sustainability “is not guaranteed.”",
+      "It also records the opposition already on the record — Mayor Lurie, Supervisors Sherrill and Wong — and the fact that residents still could not open accounts. A public bank is not a neighborhood checking account.",
+    ],
+    image: "/news/sf-public-press.jpg",
+    imageAlt:
+      "Redwood Credit Union branch in San Francisco, photographed for the San Francisco Public Press",
+  },
+  {
+    slug: "richmond-sunset-prop-b-next-scandal",
+    href: "https://richmondsunsetnews.com/2026/09/24/letter-to-the-editor-prop-b-lets-not-approve-the-next-scandal/",
+    outlet: "Richmond Review/Sunset Beacon",
+    title: "Letter to the Editor: Prop. B, Let’s Not Approve the Next Scandal",
+    date: "2026-09-24",
+    dateLabel: "September 24, 2026",
+    dek: "Richie Greenberg writes that Prop B asks voters to trust City Hall with an unfunded bank, and that a public bank would not let residents open accounts.",
+    take: [
+      "A letter in the Richmond Review/Sunset Beacon urges a No vote on Prop B. Richie Greenberg argues City Hall should not be trusted to run a bank, and that the Municipal Finance Corporation is an open-ended scheme with a startup cost in the hundreds of millions.",
+      "The letter makes two points this committee keeps making: loan losses would land on taxpayers, and San Francisco already has housing, small-business, and climate tools that do not require a new bank. A public bank is not a place for neighbors to open a checking or savings account.",
+      "The ballot question is whether to approve the institution before the money, the reserves, or the product exist.",
+    ],
+    image: "/news/richmond-sunset.jpg",
+    imageAlt:
+      "Letter to the editor graphic from the Richmond Review/Sunset Beacon",
+  },
+  {
     slug: "sfgate-public-bank-ballot-measure",
     href: "https://www.sfgate.com/news/bayarea/article/sf-ballot-measure-to-allow-for-creation-of-22442293.php",
     outlet: "SFGate",

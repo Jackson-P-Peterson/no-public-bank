@@ -10,7 +10,7 @@ import { newsJsonLd, pageMeta } from "@/lib/seo";
 export const metadata: Metadata = pageMeta({
   title: "News on Prop B San Francisco public bank",
   description:
-    "News on Prop B San Francisco and the San Francisco public bank ballot measure — SFGate, Mission Local, Chronicle editorial, KQED, Axios, American Banker, and more.",
+    "News on Prop B San Francisco and the San Francisco public bank ballot measure — SPUR, San Francisco Public Press, POLITICO, SFGate, Chronicle editorial, and more.",
   path: "/news",
 });
 

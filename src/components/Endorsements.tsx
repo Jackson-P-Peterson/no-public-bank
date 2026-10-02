@@ -80,6 +80,11 @@ const organizations = [
     alt: "Ed Lee Democratic Club logo",
   },
   {
+    name: "Libertarian Party of San Francisco",
+    src: "/endorsements/lpsf.png",
+    alt: "Libertarian Party of San Francisco logo",
+  },
+  {
     name: "Bay Area Council",
     src: "/endorsements/bay-area-council.png",
     alt: "Bay Area Council logo",
